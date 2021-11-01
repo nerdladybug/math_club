@@ -2,7 +2,7 @@
 
 %%% Работа с русским языком
 \usepackage{cmap}
-\usepackage[cp1251]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[english, russian]{babel}
 \usepackage{pscyr}
 
@@ -39,7 +39,7 @@
 \addto\captionsrussian{\def\refname{Литература}}
 
 %%% Заголовок
-\author{Мат.клуб "Тифаретник" по С. Клини}
+\author{Мат.клуб ``Тифаретник'' по С. Клини}
 \title{Введение в метаматематику на троечку}
 \date{\today}
 
@@ -111,6 +111,8 @@
 
 %%% Несколько колонок для перечислений
 \usepackage{multicol}
+
+\usepackage{array}
 	
 \begin{document}
 	\maketitle
@@ -309,9 +311,65 @@
 	\end{definition}
 	
 	\begin{theorem}
-		\textbf{О дедукции.}
-		
-		Для исчисления высказываний, если $\Gamma, A \vdash B$, то $\Gamma \vdash A \supset B$.
+		\textbf{О дедукции.} Для исчисления высказываний, если $\Gamma, A \vdash B$, то 
+		$\Gamma \vdash A \supset B$.
 	\end{theorem}
+
+	\setcounter{theorem}{0}
+	
+	\begin{theorem}
+		\textbf{О дедукции.} Для исчисления предикатов (или полной арифметической формальной системы), если 
+		$\Gamma, A \vdash B$, причём все свободные переменные остаются фиксированными 
+		для последней исходной формулы, то $\Gamma \vdash A \supset B$.
+	\end{theorem}
+
+	\begin{definition}
+		Переменная ``$x$'' приписанная к символу ``$\vdash$'' в качестве верхнего индекса
+		отличает применение правила \circled{9} или \circled{12} по отношению к $x$ 
+		при построении результирующего вывода.		
+	\end{definition}
+
+	\begin{theorem}
+		В следующих правилах $A$, $B$ и $C$ или $x$, $A(x)$, $C$ и $t$ подчинены тем же 
+		условиям, что и в соответствующих постулатах, а $\Gamma$ или $\Gamma(x)$ есть 
+		любой список формул. 
+		
+		Для исчисления высказываний справедливы
+		правила от ``импликации'' до ``отрицания'' включительно.
+		
+		Для исчисления предикатов (или полной арифметической системы) справедливы все 
+		правила, при условии, что в каждом вспомогательном выводе связанные переменные
+		остаются фиксированными для устраняемой формулы.
+		
+		\begin{center}
+			\begin{tabular}{ | m{3cm} | m{5.2cm}| m{5cm} | }
+				\hline
+							& Введение & Удаление \\ 
+				\hline
+				Импликация 	& Если $\Gamma, A \vdash B$, \newline то $\Gamma \vdash A 
+							\supset B$    
+							& $A, A \supset B \vdash B$ \newline (modus ponens) \\
+				\hline
+				Конъюнкция 	& $A, B \vdash A \conj B$ 
+							& $A \conj B \vdash A$ \newline $A \conj B \vdash B$ \\
+				\hline
+				Дизъюнкция 	& $A \vdash A \vee B$ \newline $B \vdash A \vee B$ 
+							& Если $\Gamma, A \vdash C$ и $\Gamma, B \vdash C$, \newline то
+							$\Gamma, A \vee B \vdash C$ \\
+				\hline
+				Отрицание  	& Если $\Gamma, A \vdash B$ и $\Gamma, A \vdash \neg B$, 
+							\newline то $\Gamma \vdash \neg A$ 
+							& $\neg \neg A \vdash A$ \\
+				\hline
+				Общность   	& $A(x) \vdash^x \forall x A(x)$ 
+							& $\forall x A(x) \vdash A(t)$ \\
+				\hline
+				Существование & $A(t) \vdash \exists x A(x)$ 
+							& Если $\Gamma(x), A(x) \vdash C$, \newline то $\Gamma(x), \exists x A(x) \vdash^x C$ \\
+				\hline
+			\end{tabular}
+		\end{center}  
+	\end{theorem}
+
 		
 \end{document}
