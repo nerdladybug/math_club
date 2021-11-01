@@ -1,0 +1,317 @@
+\documentclass[a4paper, 12pt]{article}  % добавить leqno в [] для нумерации слева
+
+%%% Работа с русским языком
+\usepackage{cmap}
+\usepackage[cp1251]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{pscyr}
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая
+
+%% Номера формул
+\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+%% Шрифты
+\usepackage{euscript} % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+
+%% Первый абзац после секшиона
+\usepackage{indentfirst}
+
+%% Свои команды
+\DeclareMathOperator{\pphi}{\mathop{\varphi}}
+\DeclareMathOperator{\eps}{\mathop{\varepsilon}}
+\DeclareMathOperator{\conj}{\mathbb{\&}}
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+	{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%% Поля
+\usepackage[left=1cm, right=1.4cm, top=1cm, bottom=1.3cm]{geometry}
+
+%% Графика
+\usepackage{tikz}
+
+%% Переименовать список литературы
+\addto\captionsrussian{\def\refname{Литература}}
+
+%%% Заголовок
+\author{Мат.клуб "Тифаретник" по С. Клини}
+\title{Введение в метаматематику на троечку}
+\date{\today}
+
+%%% Эпиграф
+\usepackage{epigraph}
+
+%%% Работа с картинками
+\usepackage{graphicx}  % Для вставки рисунков
+\graphicspath{{images/}{images2/}}  % папки с картинками
+\setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig} % Обтекание рисунков и таблиц текстом
+
+%%% Добавляем код. Окружение lstlisting
+\usepackage{listings}
+\usepackage{color}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{bggray}{RGB}{244,244,244}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset
+{
+	backgroundcolor=\color{bggray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+	basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+	breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=b,                    % sets the caption-position to bottom
+	commentstyle=\color{mygreen},    % comment style
+	deletekeywords={...},            % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	%	firstnumber=1000,                % start line enumeration with line 1000
+	%	frame=single,	                   % adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       % keyword style
+	language=c,                 	 % the language of the code
+	morekeywords={*,...},            % if you want to add more keywords to the set
+	numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mymauve},     % string literal style
+	tabsize=3,	                     % sets default tabsize to 2 spaces
+	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title	
+}
+
+%%% Ссылки
+\usepackage{hyperref}
+
+%%% Окружения
+\theoremstyle{definition}
+\newtheorem{theorem}{Теорема}
+\newtheorem*{definition}{Определение}
+\newtheorem*{pr}{Доказательство}
+
+%%% Цифры в кружке
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+%%% Перечисление кастомное
+\usepackage{enumitem}
+
+%%% Естественный вывод
+\usepackage{bussproofs}
+
+%%% Несколько колонок для перечислений
+\usepackage{multicol}
+	
+\begin{document}
+	\maketitle
+
+	\begin{definition}
+		\textit{Формальные символы}
+		\begin{itemize}
+			\setlength\itemsep{-3pt}
+			\item \textit{Логические символы}: 
+				$\supset$(влечёт), $\conj$(и), $\vee$(или),
+				$\neg$(не), $\forall$(для всех), $\exists$(существует)
+			\item \textit{Символы предикатов}: $=$(равняется)
+			\item \textit{Символы функций}: 
+				$+$(сложить с), $\cdot$(умножить на), $\backprime$(следующий за)
+			\item \textit{Индивидуальные символы}: $0$(нуль)
+			\item \textit{Переменные}: $a$, $b$, $c$, \dots
+			\item \textit{Скобки}: $($, $)$
+		\end{itemize}
+	\end{definition}
+	
+	\begin{definition}
+		\leavevmode			
+		\begin{enumerate}
+			\setlength\itemsep{-3pt}	
+			\item $0$ есть \textit{терм}
+			\item Каждая переменная есть \textit{терм}
+			\item Если $s$ и $t$ --- \textit{термы}, то
+			\begin{multicols}{4}
+				\begin{enumerate}
+				\item $(s)+(t)$          --- \textit{терм}
+				\item $(s) \cdot (t)$    --- \textit{терм}
+				\item $(s)^{\backprime}$ --- \textit{терм}
+				\end{enumerate}
+			\end{multicols}
+			\item Никаких других \textit{термов}, кроме определённых согласно 1--3, нет.
+		\end{enumerate}
+	\end{definition}
+
+	\begin{definition}
+		\leavevmode				
+		\begin{enumerate}
+			\setlength\itemsep{-3pt}	
+			\item Если $s$ и $t$ --- \textit{термы}, то $(s)=(t)$ --- \textit{формула}
+			\item Если $A$ и $B$ --- \textit{формулы}, то
+			\begin{multicols}{3}
+				\begin{enumerate}
+				\item $(A) \supset (B)$ --- \textit{формула}
+				\item $(A) \conj\: (B)$ --- \textit{формула}
+				\item $(A) \vee (B)$    --- \textit{формула}
+				\item $\neg (A)$        --- \textit{формула}
+				\end{enumerate}
+			\end{multicols}
+			\item Если $x$ --- переменная, а $A$ --- \textit{формула}, то 
+			\begin{multicols}{3}
+				\begin{enumerate}
+				\item $\forall x (A)$ --- \textit{формула}
+				\item $\exists x (A)$ --- \textit{формула}
+				\end{enumerate}
+			\end{multicols}
+			\item Никаких других \textit{формул}, кроме определённых согласно 1--3, нет.
+		\end{enumerate}
+	\end{definition}
+	
+	\begin{definition}
+		Вхождение $x$ в формулу $A$ называется \textit{связанным} (или вхождением в качестве 
+		\textit{связанной переменной}), если оно является вхождением в квантор $\forall x$ или $\exists x$
+		или в область действия квантора $\forall x$ или $\exists x$; в противном случае вхождение
+		называется \textit{свободным}. 	
+	\end{definition}
+
+	\begin{definition}
+		\textit{Подстановка терма $t$ вместо} переменной $x$ в терм или формулу $A$ состоит в одновременной
+		 замене	каждого \textit{свободного вхождения} $x$ в $A$ на вхождение $t$.		
+	\end{definition}
+
+	\begin{definition}
+		Будем говорить, что терм $t$ \textit{свободен при свободных вхождениях} переменной $x$ в 
+		формулу $A(x)$, если никакое свободное вхождение $x$ в $A(x)$ не входит в область действия 
+		какого-нибудь квантора $\forall y$ или $\exists y$, где $y$ --- переменная из $t$
+		(т.е. входящая в $t$).  		
+	\end{definition}
+
+	\newpage
+	
+	{
+		\centering
+		\section*{Постулаты формальной системы}
+	}
+		\subsubsection*{Dramatis personae}
+			В постулатах 1--8 $A, B$ и $C$ --- формулы. В 9--13 $x$ --- переменная, $A(x)$ --- формула, 
+			$C$ --- формула, не содержащая свободно $x$, а $t$ --- терм, свободный для $x$ в $A(x)$.
+		
+		\subsection*{Группа А. Постулаты исчисления предикатов}
+		
+		\subsubsection*{Группа А1. Постулаты исчисления высказываний}
+			\begin{multicols}{2}
+				\begin{itemize}[label={}]
+				\setlength\itemsep{0pt}	
+				\item \circled{1a} $A \supset (B \supset A)$
+				\item \circled{1b} $(A \supset B) \supset ((A \supset (B \supset C)) \supset (A \supset C))$
+				\item \circled{4a} $A \conj B \supset A$
+				\item \circled{4b} $A \conj B \supset B$
+				\item \circled{5a} $A \supset A \vee B$
+				\item \circled{5b} $B \supset A \vee B$
+				\item \circled{2} 
+					\AxiomC{$A, A \supset B $}
+					\UnaryInfC{$B$}
+					\DisplayProof
+				\item \circled{3} $A \supset (B \supset A \conj B)$
+				\item \circled{6} $(A \supset C) \supset ((B \supset C) \supset (A \vee B \supset C))$
+				\item \circled{7} $(A \supset B) \supset ((A \supset \neg B) \supset \neg A)$
+				\item \circled{$8^{\circ}$} $\neg \neg A \supset A$
+				\item[\vspace{\fill}]
+				\end{itemize}
+			\end{multicols}
+		
+		\subsubsection*{Группа А2. (Дополнительные) Постулаты исчисления предикатов}
+		\begin{multicols}{2}
+			\begin{itemize}[label={}]
+			\item \circled{9}
+				\AxiomC{$C \supset A(x)$}
+				\UnaryInfC{$C \supset \forall x A(x)$}
+				\DisplayProof
+			\item \circled{10} $\forall x A(x) \supset A(t)$
+			\item \circled{11} $A(t) \supset \exists x A(x)$
+			\item \circled{12} 
+				\AxiomC{$A(x) \supset C$}
+				\UnaryInfC{$\exists x A(x) \supset C$}
+				\DisplayProof
+			\end{itemize}
+		\end{multicols}
+		
+		\subsection*{Группа B. (Дополнительные) Постулаты арифметики}
+			\begin{multicols}{2}
+				\begin{itemize}[label={}]
+				\setlength\itemsep{0pt}	
+				\item \circled{13} $A(0) \conj \forall x (A(x) \supset A(x^{\backprime})) \supset A(x)$
+				\item \circled{14} $a^{\backprime} = b^{\backprime} \supset a = b$
+				\item \circled{15} $\neg a^{\backprime} = 0$
+				\item \circled{16} $a = b \supset (a = c \supset b = c)$
+				\item \circled{17} $a = b \supset a^{\backprime} = b^{\backprime}$
+				\item \circled{18} $a + 0 = a$
+				\item \circled{19} $a + b^{\backprime} = (a + b)^{\backprime}$
+				\item \circled{20} $a \cdot 0 = 0$
+				\item \circled{21} $a \cdot b^{\backprime} = a \cdot b + a$
+				\item[\vspace{\fill}]				
+				\end{itemize}
+			\end{multicols}
+		
+		\begin{definition}
+			Формула является \textit{аксиомой}, если она имеет форму одну из \circled{1a}, 
+			\circled{1b}, \circled{3}--\circled{8}, \circled{10}, \circled{11}, \circled{13} или она
+			есть одна из \circled{14}--\circled{21}.  		
+		\end{definition}
+	
+		\begin{definition}
+			Формула является \textit{непосредственным следствием} (из) одной или двух других формул,
+			если она имеет форму, указанную под чертой, тогда как другая (не) имеет(ют) форму(ы),
+			указанную (не) над чертой в \circled{2}, \circled{9} или \circled{12}.    		
+		\end{definition}
+	
+		\begin{definition}
+			Постулаты \circled{2}, \circled{9} и \circled{12} мы называем 
+			\textit{правилами вывода}. Для любого (фиксированного) выбора $A$ и $B$ или $x$, $A(x)$
+			и $C$, подчинённого отмеченным выше условиям, формулы указанные над чертой, являются
+			\textit{посылкой} (\textit{первой} и \textit{второй посылкой} соответственно), а 
+			формула, указанная под чертой, является \textit{заключением} применения правила вывода.    		
+		\end{definition}
+		
+	\subsection*{Формальный вывод}
+	
+	\begin{definition}
+		Если дан перечень $D_1, \dots, D_l(l\ge0)$ формул, то непустая конечная последовательность формул
+		называется \textit{формальным выводом из исходных формул} $D_1, \dots, D_l$, если каждая формула
+		этой последовательности является или одной из формул $D_1, \dots, D_l$, или аксиомой, или
+		непосредственным следствием из предыдущих формул последовательности. Вывод называется выводом
+		\textit{своей последней} формулы $E$, и эта формула называется \textit{выводимой из} исходных
+		формул (обозначается $D_1, \dots, D_l \vdash E$), а также \textit{заключением} (или 
+		\textit{конечной формулой}) вывода.
+	\end{definition}
+	
+	\begin{definition}
+		\textit{Общие свойства} $\vdash$
+		\begin{itemize}
+			\setlength\itemsep{-3pt}
+			\item $\Gamma \vdash E$, если $E$ входит в список $\Gamma$
+			\item Если $\Gamma \vdash E$, то $\Delta, \Gamma \vdash E$ для любого перечня $\Delta$
+				(Любая доказуемая выводима из любых исходных)
+			\item Если $\Gamma \vdash E$, то $\Delta \vdash E$, где $\Delta$ получается из $\Gamma$
+				путём перестановки формул $\Gamma$ или опускания любых таких формул, которые 
+				тождественны с другими остающимися
+			\item Если $\Gamma \vdash E$, то $\Delta \vdash E$, где $\Delta$ получается из $\Gamma$
+				опусканием любых формул $\Gamma$, которые являются доказуемыми или выводимыми из
+				остающихся формул $\Gamma$.
+		\end{itemize}
+	\end{definition}
+	
+	\begin{theorem}
+		\textbf{О дедукции.}
+		
+		Для исчисления высказываний, если $\Gamma, A \vdash B$, то $\Gamma \vdash A \supset B$.
+	\end{theorem}
+		
+\end{document}
