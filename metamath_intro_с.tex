@@ -45,6 +45,7 @@
 
 %%% Эпиграф
 \usepackage{epigraph}
+\setlength\epigraphwidth{9cm}
 
 %%% Работа с картинками
 \usepackage{graphicx}  % Для вставки рисунков
@@ -116,9 +117,16 @@
 	
 \begin{document}
 	\maketitle
+	
+	\epigraph{
+		Формальные ограничители нужны человеку всегда,
+			
+		Они как огнетушители, а это, бля, не ерунда.
+	}{Кровосток -- Снайпер}
 
-	\begin{definition}
-		\textit{Формальные символы}
+
+	\begin{definition}[\textsection 16,  Формальные символы]
+		\leavevmode	
 		\begin{itemize}
 			\setlength\itemsep{-3pt}
 			\item \textit{Логические символы}: 
@@ -133,7 +141,7 @@
 		\end{itemize}
 	\end{definition}
 	
-	\begin{definition}
+	\begin{definition}[\textsection 17]
 		\leavevmode			
 		\begin{enumerate}
 			\setlength\itemsep{-3pt}	
@@ -151,7 +159,7 @@
 		\end{enumerate}
 	\end{definition}
 
-	\begin{definition}
+	\begin{definition}[\textsection 17]
 		\leavevmode				
 		\begin{enumerate}
 			\setlength\itemsep{-3pt}	
@@ -176,19 +184,19 @@
 		\end{enumerate}
 	\end{definition}
 	
-	\begin{definition}
+	\begin{definition}[\textsection 18]
 		Вхождение $x$ в формулу $A$ называется \textit{связанным} (или вхождением в качестве 
 		\textit{связанной переменной}), если оно является вхождением в квантор $\forall x$ или $\exists x$
 		или в область действия квантора $\forall x$ или $\exists x$; в противном случае вхождение
 		называется \textit{свободным}. 	
 	\end{definition}
 
-	\begin{definition}
+	\begin{definition}[\textsection 18]
 		\textit{Подстановка терма $t$ вместо} переменной $x$ в терм или формулу $A$ состоит в одновременной
 		 замене	каждого \textit{свободного вхождения} $x$ в $A$ на вхождение $t$.		
 	\end{definition}
 
-	\begin{definition}
+	\begin{definition}[\textsection 18]
 		Будем говорить, что терм $t$ \textit{свободен при свободных вхождениях} переменной $x$ в 
 		формулу $A(x)$, если никакое свободное вхождение $x$ в $A(x)$ не входит в область действия 
 		какого-нибудь квантора $\forall y$ или $\exists y$, где $y$ --- переменная из $t$
@@ -199,7 +207,7 @@
 	
 	{
 		\centering
-		\section*{Постулаты формальной системы}
+		\section*{Постулаты формальной системы (\textsection 19)}
 	}
 		\subsubsection*{Dramatis personae}
 			В постулатах 1--8 $A, B$ и $C$ --- формулы. В 9--13 $x$ --- переменная, $A(x)$ --- формула, 
@@ -262,19 +270,19 @@
 				\end{itemize}
 			\end{multicols}
 		
-		\begin{definition}
+		\begin{definition}[\textsection 19]
 			Формула является \textit{аксиомой}, если она имеет форму одну из \circled{1a}, 
 			\circled{1b}, \circled{3}--\circled{8}, \circled{10}, \circled{11}, \circled{13} или она
 			есть одна из \circled{14}--\circled{21}.  		
 		\end{definition}
 	
-		\begin{definition}
+		\begin{definition}[\textsection 19]
 			Формула является \textit{непосредственным следствием} (из) одной или двух других формул,
 			если она имеет форму, указанную под чертой, тогда как другая (не) имеет(ют) форму(ы),
 			указанную (не) над чертой в \circled{2}, \circled{9} или \circled{12}.    		
 		\end{definition}
 	
-		\begin{definition}
+		\begin{definition}[\textsection 19]
 			Постулаты \circled{2}, \circled{9} и \circled{12} мы называем 
 			\textit{правилами вывода}. Для любого (фиксированного) выбора $A$ и $B$ или $x$, $A(x)$
 			и $C$, подчинённого отмеченным выше условиям, формулы указанные над чертой, являются
@@ -284,7 +292,7 @@
 		
 	\subsection*{Формальный вывод}
 	
-	\begin{definition}
+	\begin{definition}[\textsection 20]
 		Если дан перечень $D_1, \dots, D_l(l\ge0)$ формул, то непустая конечная последовательность формул
 		называется \textit{формальным выводом из исходных формул} $D_1, \dots, D_l$, если каждая формула
 		этой последовательности является или одной из формул $D_1, \dots, D_l$, или аксиомой, или
@@ -294,8 +302,8 @@
 		\textit{конечной формулой}) вывода.
 	\end{definition}
 	
-	\begin{definition}
-		\textit{Общие свойства} $\vdash$
+	\begin{definition}[\textsection 20, Общие свойства $\vdash$]
+		\leavevmode
 		\begin{itemize}
 			\setlength\itemsep{-3pt}
 			\item $\Gamma \vdash E$, если $E$ входит в список $\Gamma$
@@ -310,26 +318,26 @@
 		\end{itemize}
 	\end{definition}
 	
-	\begin{theorem}
-		\textbf{О дедукции.} Для исчисления высказываний, если $\Gamma, A \vdash B$, то 
+	\begin{theorem}[\textsection 21, О дедукции]
+		Для исчисления высказываний, если $\Gamma, A \vdash B$, то 
 		$\Gamma \vdash A \supset B$.
 	\end{theorem}
 
 	\setcounter{theorem}{0}
 	
-	\begin{theorem}
-		\textbf{О дедукции.} Для исчисления предикатов (или полной арифметической формальной системы), если 
+	\begin{theorem}[\textsection 22, полная]
+		 Для исчисления предикатов (или полной арифметической формальной системы), если 
 		$\Gamma, A \vdash B$, причём все свободные переменные остаются фиксированными 
 		для последней исходной формулы, то $\Gamma \vdash A \supset B$.
 	\end{theorem}
 
-	\begin{definition}
+	\begin{definition}[\textsection 23]
 		Переменная ``$x$'' приписанная к символу ``$\vdash$'' в качестве верхнего индекса
 		отличает применение правила \circled{9} или \circled{12} по отношению к $x$ 
 		при построении результирующего вывода.		
 	\end{definition}
 
-	\begin{theorem}
+	\begin{theorem}[\textsection 23]
 		В следующих правилах $A$, $B$ и $C$ или $x$, $A(x)$, $C$ и $t$ подчинены тем же 
 		условиям, что и в соответствующих постулатах, а $\Gamma$ или $\Gamma(x)$ есть 
 		любой список формул. 
@@ -369,6 +377,80 @@
 				\hline
 			\end{tabular}
 		\end{center}  
+	\end{theorem}
+
+	\newpage
+	
+	\subsection*{Формулы исчисления высказываний}
+	
+	\begin{definition}[\textsection 25]
+		Формальные символы нового рода: $\mathscr{A}, \mathscr{B}, \mathscr{C}, \dots$ называемые
+		пропозициональными буквами, (потенциально) бесконечный перечень которых мы считаем
+		имеющимся в нашем распоряжении. Новое определение ``формулы'': 
+		\begin{enumerate}
+			\setlength\itemsep{-3pt}	
+			\item Пропозициональная буква есть \textit{формула}
+			\item Если $A$ и $B$ --- \textit{формулы}, то
+			\begin{multicols}{3}
+				\begin{enumerate}
+					\item $(A) \supset (B)$ --- \textit{формула}
+					\item $(A) \conj\: (B)$ --- \textit{формула}
+					\item $(A) \vee (B)$    --- \textit{формула}
+					\item $\neg (A)$        --- \textit{формула}
+				\end{enumerate}
+			\end{multicols}
+			\item Никаких других \textit{формул}, кроме определённых согласно 1 и 2, нет.
+		\end{enumerate}
+	\end{definition}
+
+	\begin{definition}[\textsection 25]
+		Пусть $P_1, \dots, P_m$ --- перечень различных пропозициональных букв. (Здесь 
+		$``P_1"$$ , \dots, ``P_m"$ --- метаматематические буквы, которыми мы пользуемся как
+		названиями для пропозициональных букв, когда не хотим ограничивать наше рассуждение
+		употреблением конкретных пропозициональных букв.)
+		
+		Пропозициональная формула $A$ называется \textit{формулой составленной} из 
+		$P_1, \dots, P_m$, если никакая пропозициональная буква, отличная от $P_1, \dots, P_m$ 
+		не входит в $A$.
+	\end{definition}
+
+	\begin{definition}[\textsection 25]
+		\textit{Подстановка} вместо пропозициональной буквы (или одновременно вместо нескольких различных пропозициональных пропозициональных букв) определяется как для переменной в \textsection 18, за исключением того, что подстановка применяется теперь ко всем вхождениям без исключений (так как нет связанных вхождений).
+	\end{definition}
+
+	\begin{theorem}[\textsection 25, Подстановка вместо пропозициональных букв]
+		Пусть $\Gamma$ --- перечень пропозициональных формул, а $E$ --- пропозициональная формула, 
+		составленная из различных пропозициональных букв $P_1, \dots, P_m$. Пусть 
+		$A_1, \dots, A_m$ --- формулы. Пусть $\Gamma^*$ и $E^*$ получаются из $\Gamma$ и $E$ 
+		соответственно путём одновременной подстановки $A_1, \dots, A_m$ вместо $P_1, \dots, P_m$ 
+		соответственно. 
+		
+		Если $\Gamma \vdash E$, то $\Gamma^* \vdash E^*$ (Для случая пустой $\Gamma$: если 
+		$\vdash E$, то $\vdash E^*$)
+	\end{theorem}
+
+	\begin{definition}[\textsection 25]
+		Формула называется \textit{элементарной (для исчисления высказываний)}, если она не 
+		имеет ни одного из видов $A \supset B$, $A \conj B$, $A \vee B$, $\neg A$, где $A$
+		и  $B$ --- формулы.		
+	\end{definition}
+
+	\begin{theorem}[\textsection 25, Обращение правила подстановки для проп. переменных]
+		При тех же условиях, что и в теореме 3. Если $A_1, \dots, A_m$ --- элементарные формулы, то
+		из $\Gamma^* \vdash E^*$ следует $\Gamma \vdash E$.
+	\end{theorem}
+
+	\setcounter{theorem}{3}
+	
+	\begin{theorem}[\textsection 25, вторая форма]
+		Пусть $\Gamma^*$ --- формулы, а $E^*$ --- формула, имеющие различные элементарные 
+		компоненты $A_1, \dots, A_m$. Пусть $P_1, \dots, P_m$ --- пропозициональные буквы, не 
+		обязательно различные. Пусть $\Gamma$, $E$ получаются из $\Gamma^*$, $E^*$ соответственно 
+		заменой одновременно во всех вхождениях $A_1, \dots, A_m$ на $P_1, \dots, P_m$ 
+		соответственно. Тогда $\Gamma^* \vdash E^*$ влечёт $\Gamma \vdash E$.
+		
+		За исключением того, что ``формула'' здесь понимается не в смысле пропозициональной 
+		формулы, теорема 4 содержится в теореме 3.
 	\end{theorem}
 
 		
