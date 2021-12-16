@@ -1,0 +1,138 @@
+%%% Герценовские чтения -- 2015
+\documentclass[a4paper, 12pt]{article}  % добавить leqno в [] для нумерации слева
+
+%%% Работа с русским языком
+\usepackage{cmap}
+\usepackage[cp1251]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{pscyr}
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая
+
+%% Номера формул
+\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+%% Шрифты
+\usepackage{euscript} % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+
+%% Первый абзац после секшиона
+\usepackage{indentfirst}
+
+%% Свои команды
+\DeclareMathOperator{\pphi}{\mathop{\varphi}}
+\DeclareMathOperator{\eps}{\mathop{\varepsilon}}
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+	{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%% Поля
+\usepackage[left=2cm, right=2cm, top=1cm, bottom=2cm]{geometry}
+
+%% Графика
+\usepackage{tikz}
+
+%% Переименовать список литературы
+\addto\captionsrussian{\def\refname{Литература}}
+
+%%% Заголовок
+%%\author{Проказова Артема Андреевича}
+\title{Travelling}
+\date{}
+
+%%% Эпиграф
+\usepackage{epigraph}
+
+%%% Работа с картинками
+\usepackage{graphicx}  % Для вставки рисунков
+\graphicspath{{images/}{images2/}}  % папки с картинками
+\setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig} % Обтекание рисунков и таблиц текстом
+
+%%% Добавляем код. Окружение lstlisting
+\usepackage{listings}
+\usepackage{color}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{bggray}{RGB}{244,244,244}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset
+{
+	backgroundcolor=\color{bggray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+	basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+	breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=b,                    % sets the caption-position to bottom
+	commentstyle=\color{mygreen},    % comment style
+	deletekeywords={...},            % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+%	firstnumber=1000,                % start line enumeration with line 1000
+%	frame=single,	                   % adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       % keyword style
+	language=c,                 	 % the language of the code
+	morekeywords={*,...},            % if you want to add more keywords to the set
+	numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mymauve},     % string literal style
+	tabsize=3,	                     % sets default tabsize to 2 spaces
+	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title	
+}
+
+%%% Ссылки
+\usepackage{hyperref}
+
+%%% Окружения
+\newtheorem{theorem}{Тh}
+\theoremstyle{definition}
+\newtheorem*{definition}{Def}
+\newtheorem*{pr}{Pr}
+
+%%% Цифры в кружке
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\begin{document}
+	$(a=b) \vdash (b=a)$
+	\begin{enumerate}
+		\item $(a=b) \supset ((a=c) \supset (b=c))$ — постулаты арифметики, \circled{16}
+		\item $(a=b) \supset \forall{c} ((a=c) \supset (b=c))$ — постулаты исчисления предикатов, \circled{9}
+		\item $\forall{c}((a=c)\supset (b=c))$ — исчиление высказываний, \circled{2}, из исходной формулы и 2 
+		\item $\forall{c}((a=c)\supset (b=c))\supset((a=a) \supset (b=a)) $ — исчисление предикатов, \circled{10}, $t=a$
+		\item $(a=a) \supset (b=a)$ — исчиление высказываний, \circled{2}, из 3 и 4 
+		\item $b=a $ — исчиление высказываний, \circled{2}, из $a=a$ (непосредственное следствие из аксиом) и 5
+	\end{enumerate}
+
+	\bigskip
+	
+	$(a=b), (b=c) \vdash (a=c)$
+	\begin{enumerate}
+		\item $(b=a) \supset ((b=d) \supset (a=d))$ — \circled{16}
+		\item $(b=a) \supset \forall{d} ((b=d) \supset (a=d))$ — \circled{9}
+		\item $\forall{d} ((b=d) \supset (a=d))$ — \circled{2}, из $(a=b) \vdash (b=a)$ и 2 
+		\item $\forall{d} ((b=d) \supset (a=d)) \supset ((b=c) \supset (a=c))$ — \circled{10}, $ t=c$
+		\item $(b=c) \supset (a=c)$ — \circled{2}, из 3 и 4
+		\item $a=c$ — \circled{2}, из исходной формулы и 5
+	\end{enumerate}
+
+	\bigskip
+	
+	По теореме о дедукции:
+	\begin{enumerate}
+		\item $(a=b), (b=c) \vdash (a=c)$
+		\item $(a=b) \vdash (b=c) \supset (a=c)$
+		\item $\vdash (a=b) \supset ((b=c) \supset (a=c))$
+	\end{enumerate}
+\end{document}
