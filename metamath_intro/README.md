@@ -2,7 +2,7 @@
 Здесь более или менее всё полезное, что было выработано мат. клубом в процессе чтения и обсуждения книги С. Клини, "Введение в метаматематику".
 
 - Самое важное, конечно, [конспект (только теоремы и определения к ним)](https://github.com/nerdladybug/math_club/blob/main/metamath_intro/metamath_intro_%D1%81.pdf)
-	- Отдельно [постулаты]()
+	- Отдельно [постулаты](https://github.com/nerdladybug/math_club/blob/main/metamath_intro/postulates.pdf)
 	- Отдельно [только теоремы]()
 
 - Примеры 
