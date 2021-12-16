@@ -4,7 +4,7 @@
 Пока здесь всё, как говорится, ин прогресс
 
 - Сейчас читаем
-	- [Конспект "Введения в метаматематику", Стивена Клини (только определения и теоремы)](https://github.com/nerdladybug/math_club/blob/main/metamath_intro/metamath_intro_%D1%81.pdf)
+	- ["Введение в метаматематику", Стивена Клини](https://github.com/nerdladybug/math_club/blob/main/metamath_intro)
 - Планируем читать
 	- Алуфи
 	- Формальная грамматика
