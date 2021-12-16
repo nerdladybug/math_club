@@ -1,59 +1,58 @@
-%%% Герценовские чтения -- 2015
-\documentclass[a4paper, 12pt]{article}  % добавить leqno в [] для нумерации слева
+\documentclass[a4paper, 12pt]{article}  % РґРѕР±Р°РІРёС‚СЊ leqno РІ [] РґР»СЏ РЅСѓРјРµСЂР°С†РёРё СЃР»РµРІР°
 
-%%% Работа с русским языком
+%%% Р Р°Р±РѕС‚Р° СЃ СЂСѓСЃСЃРєРёРј СЏР·С‹РєРѕРј
 \usepackage{cmap}
 \usepackage[cp1251]{inputenc}
 \usepackage[english, russian]{babel}
 \usepackage{pscyr}
 
-%%% Дополнительная работа с математикой
+%%% Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ СЂР°Р±РѕС‚Р° СЃ РјР°С‚РµРјР°С‚РёРєРѕР№
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
-\usepackage{icomma} % "Умная" запятая
+\usepackage{icomma} % "РЈРјРЅР°СЏ" Р·Р°РїСЏС‚Р°СЏ
 
-%% Номера формул
-\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+%% РќРѕРјРµСЂР° С„РѕСЂРјСѓР»
+\mathtoolsset{showonlyrefs=true} % РџРѕРєР°Р·С‹РІР°С‚СЊ РЅРѕРјРµСЂР° С‚РѕР»СЊРєРѕ Сѓ С‚РµС… С„РѕСЂРјСѓР», РЅР° РєРѕС‚РѕСЂС‹Рµ РµСЃС‚СЊ \eqref{} РІ С‚РµРєСЃС‚Рµ.
 
-%% Шрифты
-\usepackage{euscript} % Шрифт Евклид
-\usepackage{mathrsfs} % Красивый матшрифт
+%% РЁСЂРёС„С‚С‹
+\usepackage{euscript} % РЁСЂРёС„С‚ Р•РІРєР»РёРґ
+\usepackage{mathrsfs} % РљСЂР°СЃРёРІС‹Р№ РјР°С‚С€СЂРёС„С‚
 
-%% Первый абзац после секшиона
+%% РџРµСЂРІС‹Р№ Р°Р±Р·Р°С† РїРѕСЃР»Рµ СЃРµРєС€РёРѕРЅР°
 \usepackage{indentfirst}
 
-%% Свои команды
+%% РЎРІРѕРё РєРѕРјР°РЅРґС‹
 \DeclareMathOperator{\pphi}{\mathop{\varphi}}
 \DeclareMathOperator{\eps}{\mathop{\varepsilon}}
 
-%% Перенос знаков в формулах (по Львовскому)
+%% РџРµСЂРµРЅРѕСЃ Р·РЅР°РєРѕРІ РІ С„РѕСЂРјСѓР»Р°С… (РїРѕ Р›СЊРІРѕРІСЃРєРѕРјСѓ)
 \newcommand*{\hm}[1]{#1\nobreak\discretionary{}
 	{\hbox{$\mathsurround=0pt #1$}}{}}
 
-%% Поля
+%% РџРѕР»СЏ
 \usepackage[left=2cm, right=2cm, top=1cm, bottom=2cm]{geometry}
 
-%% Графика
+%% Р“СЂР°С„РёРєР°
 \usepackage{tikz}
 
-%% Переименовать список литературы
-\addto\captionsrussian{\def\refname{Литература}}
+%% РџРµСЂРµРёРјРµРЅРѕРІР°С‚СЊ СЃРїРёСЃРѕРє Р»РёС‚РµСЂР°С‚СѓСЂС‹
+\addto\captionsrussian{\def\refname{Р›РёС‚РµСЂР°С‚СѓСЂР°}}
 
-%%% Заголовок
-%%\author{Проказова Артема Андреевича}
+%%% Р—Р°РіРѕР»РѕРІРѕРє
+%%\author{РџСЂРѕРєР°Р·РѕРІР° РђСЂС‚РµРјР° РђРЅРґСЂРµРµРІРёС‡Р°}
 \title{Travelling}
 \date{}
 
-%%% Эпиграф
+%%% Р­РїРёРіСЂР°С„
 \usepackage{epigraph}
 
-%%% Работа с картинками
-\usepackage{graphicx}  % Для вставки рисунков
-\graphicspath{{images/}{images2/}}  % папки с картинками
-\setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
-\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
-\usepackage{wrapfig} % Обтекание рисунков и таблиц текстом
+%%% Р Р°Р±РѕС‚Р° СЃ РєР°СЂС‚РёРЅРєР°РјРё
+\usepackage{graphicx}  % Р”Р»СЏ РІСЃС‚Р°РІРєРё СЂРёСЃСѓРЅРєРѕРІ
+\graphicspath{{images/}{images2/}}  % РїР°РїРєРё СЃ РєР°СЂС‚РёРЅРєР°РјРё
+\setlength\fboxsep{3pt} % РћС‚СЃС‚СѓРї СЂР°РјРєРё \fbox{} РѕС‚ СЂРёСЃСѓРЅРєР°
+\setlength\fboxrule{1pt} % РўРѕР»С‰РёРЅР° Р»РёРЅРёР№ СЂР°РјРєРё \fbox{}
+\usepackage{wrapfig} % РћР±С‚РµРєР°РЅРёРµ СЂРёСЃСѓРЅРєРѕРІ Рё С‚Р°Р±Р»РёС† С‚РµРєСЃС‚РѕРј
 
-%%% Добавляем код. Окружение lstlisting
+%%% Р”РѕР±Р°РІР»СЏРµРј РєРѕРґ. РћРєСЂСѓР¶РµРЅРёРµ lstlisting
 \usepackage{listings}
 \usepackage{color}
 \definecolor{mygreen}{rgb}{0,0.6,0}
@@ -90,16 +89,16 @@
 	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title	
 }
 
-%%% Ссылки
+%%% РЎСЃС‹Р»РєРё
 \usepackage{hyperref}
 
-%%% Окружения
-\newtheorem{theorem}{Тh}
+%%% РћРєСЂСѓР¶РµРЅРёСЏ
+\newtheorem{theorem}{Рўh}
 \theoremstyle{definition}
 \newtheorem*{definition}{Def}
 \newtheorem*{pr}{Pr}
 
-%%% Цифры в кружке
+%%% Р¦РёС„СЂС‹ РІ РєСЂСѓР¶РєРµ
 \usepackage{tikz}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
 		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
@@ -107,29 +106,29 @@
 \begin{document}
 	$(a=b) \vdash (b=a)$
 	\begin{enumerate}
-		\item $(a=b) \supset ((a=c) \supset (b=c))$ — постулаты арифметики, \circled{16}
-		\item $(a=b) \supset \forall{c} ((a=c) \supset (b=c))$ — постулаты исчисления предикатов, \circled{9}
-		\item $\forall{c}((a=c)\supset (b=c))$ — исчиление высказываний, \circled{2}, из исходной формулы и 2 
-		\item $\forall{c}((a=c)\supset (b=c))\supset((a=a) \supset (b=a)) $ — исчисление предикатов, \circled{10}, $t=a$
-		\item $(a=a) \supset (b=a)$ — исчиление высказываний, \circled{2}, из 3 и 4 
-		\item $b=a $ — исчиление высказываний, \circled{2}, из $a=a$ (непосредственное следствие из аксиом) и 5
+		\item $(a=b) \supset ((a=c) \supset (b=c))$ вЂ” РїРѕСЃС‚СѓР»Р°С‚С‹ Р°СЂРёС„РјРµС‚РёРєРё, \circled{16}
+		\item $(a=b) \supset \forall{c} ((a=c) \supset (b=c))$ вЂ” РїРѕСЃС‚СѓР»Р°С‚С‹ РёСЃС‡РёСЃР»РµРЅРёСЏ РїСЂРµРґРёРєР°С‚РѕРІ, \circled{9}
+		\item $\forall{c}((a=c)\supset (b=c))$ вЂ” РёСЃС‡РёР»РµРЅРёРµ РІС‹СЃРєР°Р·С‹РІР°РЅРёР№, \circled{2}, РёР· РёСЃС…РѕРґРЅРѕР№ С„РѕСЂРјСѓР»С‹ Рё 2 
+		\item $\forall{c}((a=c)\supset (b=c))\supset((a=a) \supset (b=a)) $ вЂ” РёСЃС‡РёСЃР»РµРЅРёРµ РїСЂРµРґРёРєР°С‚РѕРІ, \circled{10}, $t=a$
+		\item $(a=a) \supset (b=a)$ вЂ” РёСЃС‡РёР»РµРЅРёРµ РІС‹СЃРєР°Р·С‹РІР°РЅРёР№, \circled{2}, РёР· 3 Рё 4 
+		\item $b=a $ вЂ” РёСЃС‡РёР»РµРЅРёРµ РІС‹СЃРєР°Р·С‹РІР°РЅРёР№, \circled{2}, РёР· $a=a$ (РЅРµРїРѕСЃСЂРµРґСЃС‚РІРµРЅРЅРѕРµ СЃР»РµРґСЃС‚РІРёРµ РёР· Р°РєСЃРёРѕРј) Рё 5
 	\end{enumerate}
 
 	\bigskip
 	
 	$(a=b), (b=c) \vdash (a=c)$
 	\begin{enumerate}
-		\item $(b=a) \supset ((b=d) \supset (a=d))$ — \circled{16}
-		\item $(b=a) \supset \forall{d} ((b=d) \supset (a=d))$ — \circled{9}
-		\item $\forall{d} ((b=d) \supset (a=d))$ — \circled{2}, из $(a=b) \vdash (b=a)$ и 2 
-		\item $\forall{d} ((b=d) \supset (a=d)) \supset ((b=c) \supset (a=c))$ — \circled{10}, $ t=c$
-		\item $(b=c) \supset (a=c)$ — \circled{2}, из 3 и 4
-		\item $a=c$ — \circled{2}, из исходной формулы и 5
+		\item $(b=a) \supset ((b=d) \supset (a=d))$ вЂ” \circled{16}
+		\item $(b=a) \supset \forall{d} ((b=d) \supset (a=d))$ вЂ” \circled{9}
+		\item $\forall{d} ((b=d) \supset (a=d))$ вЂ” \circled{2}, РёР· $(a=b) \vdash (b=a)$ Рё 2 
+		\item $\forall{d} ((b=d) \supset (a=d)) \supset ((b=c) \supset (a=c))$ вЂ” \circled{10}, $ t=c$
+		\item $(b=c) \supset (a=c)$ вЂ” \circled{2}, РёР· 3 Рё 4
+		\item $a=c$ вЂ” \circled{2}, РёР· РёСЃС…РѕРґРЅРѕР№ С„РѕСЂРјСѓР»С‹ Рё 5
 	\end{enumerate}
 
 	\bigskip
 	
-	По теореме о дедукции:
+	РџРѕ С‚РµРѕСЂРµРјРµ Рѕ РґРµРґСѓРєС†РёРё:
 	\begin{enumerate}
 		\item $(a=b), (b=c) \vdash (a=c)$
 		\item $(a=b) \vdash (b=c) \supset (a=c)$

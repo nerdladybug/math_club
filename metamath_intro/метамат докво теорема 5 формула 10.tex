@@ -1,58 +1,58 @@
-\documentclass[a4paper, 12pt]{article}  % добавить leqno в [] для нумерации слева
+\documentclass[a4paper, 12pt]{article}  % РґРѕР±Р°РІРёС‚СЊ leqno РІ [] РґР»СЏ РЅСѓРјРµСЂР°С†РёРё СЃР»РµРІР°
 
-%%% Работа с русским языком
+%%% Р Р°Р±РѕС‚Р° СЃ СЂСѓСЃСЃРєРёРј СЏР·С‹РєРѕРј
 \usepackage{cmap}
 \usepackage[cp1251]{inputenc}
 \usepackage[english, russian]{babel}
 \usepackage{pscyr}
 
-%%% Дополнительная работа с математикой
+%%% Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ СЂР°Р±РѕС‚Р° СЃ РјР°С‚РµРјР°С‚РёРєРѕР№
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
-\usepackage{icomma} % "Умная" запятая
+\usepackage{icomma} % "РЈРјРЅР°СЏ" Р·Р°РїСЏС‚Р°СЏ
 
-%% Номера формул
-\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+%% РќРѕРјРµСЂР° С„РѕСЂРјСѓР»
+\mathtoolsset{showonlyrefs=true} % РџРѕРєР°Р·С‹РІР°С‚СЊ РЅРѕРјРµСЂР° С‚РѕР»СЊРєРѕ Сѓ С‚РµС… С„РѕСЂРјСѓР», РЅР° РєРѕС‚РѕСЂС‹Рµ РµСЃС‚СЊ \eqref{} РІ С‚РµРєСЃС‚Рµ.
 
-%% Шрифты
-\usepackage{euscript} % Шрифт Евклид
-\usepackage{mathrsfs} % Красивый матшрифт
+%% РЁСЂРёС„С‚С‹
+\usepackage{euscript} % РЁСЂРёС„С‚ Р•РІРєР»РёРґ
+\usepackage{mathrsfs} % РљСЂР°СЃРёРІС‹Р№ РјР°С‚С€СЂРёС„С‚
 
-%% Первый абзац после секшиона
+%% РџРµСЂРІС‹Р№ Р°Р±Р·Р°С† РїРѕСЃР»Рµ СЃРµРєС€РёРѕРЅР°
 \usepackage{indentfirst}
 
-%% Свои команды
+%% РЎРІРѕРё РєРѕРјР°РЅРґС‹
 \DeclareMathOperator{\pphi}{\mathop{\varphi}}
 \DeclareMathOperator{\eps}{\mathop{\varepsilon}}
 
-%% Перенос знаков в формулах (по Львовскому)
+%% РџРµСЂРµРЅРѕСЃ Р·РЅР°РєРѕРІ РІ С„РѕСЂРјСѓР»Р°С… (РїРѕ Р›СЊРІРѕРІСЃРєРѕРјСѓ)
 \newcommand*{\hm}[1]{#1\nobreak\discretionary{}
 	{\hbox{$\mathsurround=0pt #1$}}{}}
 
-%% Поля
+%% РџРѕР»СЏ
 \usepackage[left=2cm, right=2cm, top=1cm, bottom=2cm]{geometry}
 
-%% Графика
+%% Р“СЂР°С„РёРєР°
 \usepackage{tikz}
 
-%% Переименовать список литературы
-\addto\captionsrussian{\def\refname{Литература}}
+%% РџРµСЂРµРёРјРµРЅРѕРІР°С‚СЊ СЃРїРёСЃРѕРє Р»РёС‚РµСЂР°С‚СѓСЂС‹
+\addto\captionsrussian{\def\refname{Р›РёС‚РµСЂР°С‚СѓСЂР°}}
 
-%%% Заголовок
-%%\author{Проказова Артема Андреевича}
+%%% Р—Р°РіРѕР»РѕРІРѕРє
+%%\author{РџСЂРѕРєР°Р·РѕРІР° РђСЂС‚РµРјР° РђРЅРґСЂРµРµРІРёС‡Р°}
 \title{Travelling}
 \date{}
 
-%%% Эпиграф
+%%% Р­РїРёРіСЂР°С„
 \usepackage{epigraph}
 
-%%% Работа с картинками
-\usepackage{graphicx}  % Для вставки рисунков
-\graphicspath{{images/}{images2/}}  % папки с картинками
-\setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
-\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
-\usepackage{wrapfig} % Обтекание рисунков и таблиц текстом
+%%% Р Р°Р±РѕС‚Р° СЃ РєР°СЂС‚РёРЅРєР°РјРё
+\usepackage{graphicx}  % Р”Р»СЏ РІСЃС‚Р°РІРєРё СЂРёСЃСѓРЅРєРѕРІ
+\graphicspath{{images/}{images2/}}  % РїР°РїРєРё СЃ РєР°СЂС‚РёРЅРєР°РјРё
+\setlength\fboxsep{3pt} % РћС‚СЃС‚СѓРї СЂР°РјРєРё \fbox{} РѕС‚ СЂРёСЃСѓРЅРєР°
+\setlength\fboxrule{1pt} % РўРѕР»С‰РёРЅР° Р»РёРЅРёР№ СЂР°РјРєРё \fbox{}
+\usepackage{wrapfig} % РћР±С‚РµРєР°РЅРёРµ СЂРёСЃСѓРЅРєРѕРІ Рё С‚Р°Р±Р»РёС† С‚РµРєСЃС‚РѕРј
 
-%%% Добавляем код. Окружение lstlisting
+%%% Р”РѕР±Р°РІР»СЏРµРј РєРѕРґ. РћРєСЂСѓР¶РµРЅРёРµ lstlisting
 \usepackage{listings}
 \usepackage{color}
 \definecolor{mygreen}{rgb}{0,0.6,0}
@@ -89,50 +89,50 @@
 	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title	
 }
 
-%%% Ссылки
+%%% РЎСЃС‹Р»РєРё
 \usepackage{hyperref}
 
-%%% Окружения
-\newtheorem{theorem}{Тh}
+%%% РћРєСЂСѓР¶РµРЅРёСЏ
+\newtheorem{theorem}{Рўh}
 \theoremstyle{definition}
 \newtheorem*{definition}{Def}
 \newtheorem*{pr}{Pr}
 
-%%% Цифры в кружке
+%%% Р¦РёС„СЂС‹ РІ РєСЂСѓР¶РєРµ
 \usepackage{tikz}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
 		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 
 \begin{document}
-	\subsection*{Теорема 5 (10)}
+	\subsection*{РўРµРѕСЂРµРјР° 5 (10)}
 	
 	\begin{center} 
 		$\neg A \vdash A \supset B, A \vdash \neg A \supset B $ 
 	\end{center}
 	
-	В прямую вывод построить может быть не просто, поэтому попробуем предоставить вывод,
-	по которому с помощью теоремы о дедукции получим нужный вывод. Тогда доказательство 
-	сводится к нахождению:
+	Р’ РїСЂСЏРјСѓСЋ РІС‹РІРѕРґ РїРѕСЃС‚СЂРѕРёС‚СЊ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅРµ РїСЂРѕСЃС‚Рѕ, РїРѕСЌС‚РѕРјСѓ РїРѕРїСЂРѕР±СѓРµРј РїСЂРµРґРѕСЃС‚Р°РІРёС‚СЊ РІС‹РІРѕРґ,
+	РїРѕ РєРѕС‚РѕСЂРѕРјСѓ СЃ РїРѕРјРѕС‰СЊСЋ С‚РµРѕСЂРµРјС‹ Рѕ РґРµРґСѓРєС†РёРё РїРѕР»СѓС‡РёРј РЅСѓР¶РЅС‹Р№ РІС‹РІРѕРґ. РўРѕРіРґР° РґРѕРєР°Р·Р°С‚РµР»СЊСЃС‚РІРѕ 
+	СЃРІРѕРґРёС‚СЃСЏ Рє РЅР°С…РѕР¶РґРµРЅРёСЋ:
 	
 	\begin{center} 
 		$\neg A, A \vdash B$
 	\end{center}
 
 	\begin{enumerate}
-		\item $\neg A$ — исходная формула
-		\item $A$ — исходная формула
-		\item $A \supset (\neg B \supset A)$ — \circled{1}(ошибка!!)
-		\item $\neg B \supset A $ — \circled{2}, из 2 и 3 
-		\item $\neg A \supset (\neg B \supset \neg A)$ — \circled{1}
-		\item $\neg B \supset \neg A$ — \circled{2}, из 1 и 5
-		\item $(\neg B \supset A) \supset ((\neg B \supset \neg A) \supset \neg \neg B)$ — \circled{7}
-		\item $(\neg B \supset \neg A) \supset \neg \neg B$ — \circled{2}, из 4 и 7  
-		\item $\neg \neg B$ — \circled{2}, из 6 и 8 
-		\item $\neg \neg B \supset B$ — \circled{8}
-		\item $B$ — \circled{2}, из 9 и 10 
+		\item $\neg A$ вЂ” РёСЃС…РѕРґРЅР°СЏ С„РѕСЂРјСѓР»Р°
+		\item $A$ вЂ” РёСЃС…РѕРґРЅР°СЏ С„РѕСЂРјСѓР»Р°
+		\item $A \supset (\neg B \supset A)$ вЂ” \circled{1}(РѕС€РёР±РєР°!!)
+		\item $\neg B \supset A $ вЂ” \circled{2}, РёР· 2 Рё 3 
+		\item $\neg A \supset (\neg B \supset \neg A)$ вЂ” \circled{1}
+		\item $\neg B \supset \neg A$ вЂ” \circled{2}, РёР· 1 Рё 5
+		\item $(\neg B \supset A) \supset ((\neg B \supset \neg A) \supset \neg \neg B)$ вЂ” \circled{7}
+		\item $(\neg B \supset \neg A) \supset \neg \neg B$ вЂ” \circled{2}, РёР· 4 Рё 7  
+		\item $\neg \neg B$ вЂ” \circled{2}, РёР· 6 Рё 8 
+		\item $\neg \neg B \supset B$ вЂ” \circled{8}
+		\item $B$ вЂ” \circled{2}, РёР· 9 Рё 10 
 	\end{enumerate}
 
-	И по теореме о дедукции: если $\neg A, A \vdash B$, то $\neg A \vdash A \supset B$.
-	А также $A \vdash \neg A \supset B$.
+	Р РїРѕ С‚РµРѕСЂРµРјРµ Рѕ РґРµРґСѓРєС†РёРё: РµСЃР»Рё $\neg A, A \vdash B$, С‚Рѕ $\neg A \vdash A \supset B$.
+	Рђ С‚Р°РєР¶Рµ $A \vdash \neg A \supset B$.
 		
 \end{document}

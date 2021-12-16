@@ -1,58 +1,58 @@
-\documentclass[a4paper, 12pt]{article}  % добавить leqno в [] для нумерации слева
+\documentclass[a4paper, 12pt]{article}  % РґРѕР±Р°РІРёС‚СЊ leqno РІ [] РґР»СЏ РЅСѓРјРµСЂР°С†РёРё СЃР»РµРІР°
 
-%%% Работа с русским языком
+%%% Р Р°Р±РѕС‚Р° СЃ СЂСѓСЃСЃРєРёРј СЏР·С‹РєРѕРј
 \usepackage{cmap}
 \usepackage[cp1251]{inputenc}
 \usepackage[english, russian]{babel}
 \usepackage{pscyr}
 
-%%% Дополнительная работа с математикой
+%%% Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ СЂР°Р±РѕС‚Р° СЃ РјР°С‚РµРјР°С‚РёРєРѕР№
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
-\usepackage{icomma} % "Умная" запятая
+\usepackage{icomma} % "РЈРјРЅР°СЏ" Р·Р°РїСЏС‚Р°СЏ
 
-%% Номера формул
-\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+%% РќРѕРјРµСЂР° С„РѕСЂРјСѓР»
+\mathtoolsset{showonlyrefs=true} % РџРѕРєР°Р·С‹РІР°С‚СЊ РЅРѕРјРµСЂР° С‚РѕР»СЊРєРѕ Сѓ С‚РµС… С„РѕСЂРјСѓР», РЅР° РєРѕС‚РѕСЂС‹Рµ РµСЃС‚СЊ \eqref{} РІ С‚РµРєСЃС‚Рµ.
 
-%% Шрифты
-\usepackage{euscript} % Шрифт Евклид
-\usepackage{mathrsfs} % Красивый матшрифт
+%% РЁСЂРёС„С‚С‹
+\usepackage{euscript} % РЁСЂРёС„С‚ Р•РІРєР»РёРґ
+\usepackage{mathrsfs} % РљСЂР°СЃРёРІС‹Р№ РјР°С‚С€СЂРёС„С‚
 
-%% Первый абзац после секшиона
+%% РџРµСЂРІС‹Р№ Р°Р±Р·Р°С† РїРѕСЃР»Рµ СЃРµРєС€РёРѕРЅР°
 \usepackage{indentfirst}
 
-%% Свои команды
+%% РЎРІРѕРё РєРѕРјР°РЅРґС‹
 \DeclareMathOperator{\pphi}{\mathop{\varphi}}
 \DeclareMathOperator{\eps}{\mathop{\varepsilon}}
 
-%% Перенос знаков в формулах (по Львовскому)
+%% РџРµСЂРµРЅРѕСЃ Р·РЅР°РєРѕРІ РІ С„РѕСЂРјСѓР»Р°С… (РїРѕ Р›СЊРІРѕРІСЃРєРѕРјСѓ)
 \newcommand*{\hm}[1]{#1\nobreak\discretionary{}
 	{\hbox{$\mathsurround=0pt #1$}}{}}
 
-%% Поля
+%% РџРѕР»СЏ
 \usepackage[left=2cm, right=2cm, top=1cm, bottom=2cm]{geometry}
 
-%% Графика
+%% Р“СЂР°С„РёРєР°
 \usepackage{tikz}
 
-%% Переименовать список литературы
-\addto\captionsrussian{\def\refname{Литература}}
+%% РџРµСЂРµРёРјРµРЅРѕРІР°С‚СЊ СЃРїРёСЃРѕРє Р»РёС‚РµСЂР°С‚СѓСЂС‹
+\addto\captionsrussian{\def\refname{Р›РёС‚РµСЂР°С‚СѓСЂР°}}
 
-%%% Заголовок
-%%\author{Проказова Артема Андреевича}
+%%% Р—Р°РіРѕР»РѕРІРѕРє
+%%\author{РџСЂРѕРєР°Р·РѕРІР° РђСЂС‚РµРјР° РђРЅРґСЂРµРµРІРёС‡Р°}
 \title{Travelling}
 \date{}
 
-%%% Эпиграф
+%%% Р­РїРёРіСЂР°С„
 \usepackage{epigraph}
 
-%%% Работа с картинками
-\usepackage{graphicx}  % Для вставки рисунков
-\graphicspath{{images/}{images2/}}  % папки с картинками
-\setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
-\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
-\usepackage{wrapfig} % Обтекание рисунков и таблиц текстом
+%%% Р Р°Р±РѕС‚Р° СЃ РєР°СЂС‚РёРЅРєР°РјРё
+\usepackage{graphicx}  % Р”Р»СЏ РІСЃС‚Р°РІРєРё СЂРёСЃСѓРЅРєРѕРІ
+\graphicspath{{images/}{images2/}}  % РїР°РїРєРё СЃ РєР°СЂС‚РёРЅРєР°РјРё
+\setlength\fboxsep{3pt} % РћС‚СЃС‚СѓРї СЂР°РјРєРё \fbox{} РѕС‚ СЂРёСЃСѓРЅРєР°
+\setlength\fboxrule{1pt} % РўРѕР»С‰РёРЅР° Р»РёРЅРёР№ СЂР°РјРєРё \fbox{}
+\usepackage{wrapfig} % РћР±С‚РµРєР°РЅРёРµ СЂРёСЃСѓРЅРєРѕРІ Рё С‚Р°Р±Р»РёС† С‚РµРєСЃС‚РѕРј
 
-%%% Добавляем код. Окружение lstlisting
+%%% Р”РѕР±Р°РІР»СЏРµРј РєРѕРґ. РћРєСЂСѓР¶РµРЅРёРµ lstlisting
 \usepackage{listings}
 \usepackage{color}
 \definecolor{mygreen}{rgb}{0,0.6,0}
@@ -89,45 +89,45 @@
 	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title	
 }
 
-%%% Ссылки
+%%% РЎСЃС‹Р»РєРё
 \usepackage{hyperref}
 
-%%% Окружения
-\newtheorem{theorem}{Тh}
+%%% РћРєСЂСѓР¶РµРЅРёСЏ
+\newtheorem{theorem}{Рўh}
 \theoremstyle{definition}
 \newtheorem*{definition}{Def}
 \newtheorem*{pr}{Pr}
 
-%%% Цифры в кружке
+%%% Р¦РёС„СЂС‹ РІ РєСЂСѓР¶РєРµ
 \usepackage{tikz}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
 		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 	
 \begin{document}
-	\subsubsection*{Вывод}
-	Существует ли вывод $P \supset Q, \neg P \supset R, Q \vee R \supset S \vdash S$?
+	\subsubsection*{Р’С‹РІРѕРґ}
+	РЎСѓС‰РµСЃС‚РІСѓРµС‚ Р»Рё РІС‹РІРѕРґ $P \supset Q, \neg P \supset R, Q \vee R \supset S \vdash S$?
 	\begin{enumerate}
-		\item  $P \supset Q, \neg P \supset R, Q \vee R \supset S \vdash \neg R \supset P$ — теорема 5, 14
-		\item  $P \supset Q, \neg P \supset R, Q \vee R \supset S \vdash \neg R \supset Q$ — теорема 5, 2
-		\item  $P \supset Q, \neg P \supset R, Q \vee R \supset S \vdash R \vee Q$ — теорема 7, 61
-		\item  $P \supset Q, \neg P \supset R, Q \vee R \supset S \vdash Q \vee R$ — теорема 7, 34
-		\item  $P \supset Q, \neg P \supset R, Q \vee R \supset S \vdash S$ — \circled{2}, из 4 и исходной $Q \vee R \supset S$
+		\item  $P \supset Q, \neg P \supset R, Q \vee R \supset S \vdash \neg R \supset P$ вЂ” С‚РµРѕСЂРµРјР° 5, 14
+		\item  $P \supset Q, \neg P \supset R, Q \vee R \supset S \vdash \neg R \supset Q$ вЂ” С‚РµРѕСЂРµРјР° 5, 2
+		\item  $P \supset Q, \neg P \supset R, Q \vee R \supset S \vdash R \vee Q$ вЂ” С‚РµРѕСЂРµРјР° 7, 61
+		\item  $P \supset Q, \neg P \supset R, Q \vee R \supset S \vdash Q \vee R$ вЂ” С‚РµРѕСЂРµРјР° 7, 34
+		\item  $P \supset Q, \neg P \supset R, Q \vee R \supset S \vdash S$ вЂ” \circled{2}, РёР· 4 Рё РёСЃС…РѕРґРЅРѕР№ $Q \vee R \supset S$
 	\end{enumerate}
 	
-	\subsubsection*{Перевод}
-	Пусть $S(a)$ выражает свойство $a$ быть прямоугольником с равными сторонами, $R(a)$ выражает
-	свойство $a$ быть ромбом с равными углами. Тогда
+	\subsubsection*{РџРµСЂРµРІРѕРґ}
+	РџСѓСЃС‚СЊ $S(a)$ РІС‹СЂР°Р¶Р°РµС‚ СЃРІРѕР№СЃС‚РІРѕ $a$ Р±С‹С‚СЊ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРѕРј СЃ СЂР°РІРЅС‹РјРё СЃС‚РѕСЂРѕРЅР°РјРё, $R(a)$ РІС‹СЂР°Р¶Р°РµС‚
+	СЃРІРѕР№СЃС‚РІРѕ $a$ Р±С‹С‚СЊ СЂРѕРјР±РѕРј СЃ СЂР°РІРЅС‹РјРё СѓРіР»Р°РјРё. РўРѕРіРґР°
 	\begin{center}
 		$\forall a (S(a) \sim R(a))$
 	\end{center}
 	
-	или
+	РёР»Рё
 	
 	\begin{center}
 		$\forall a((S(a) \supset R(a)) \;\&\; (R(a) \supset S(a)))$
 	\end{center}
 	
-	\subsubsection*{Проверка выводимости}
+	\subsubsection*{РџСЂРѕРІРµСЂРєР° РІС‹РІРѕРґРёРјРѕСЃС‚Рё}
 	\begin{enumerate}
 		\item  $\forall a(P(a) \supset \neg Q(a))$ 
 		\item  $\forall a(P(a) \supset \neg Q(a)) \supset P(t) \supset \neg Q(t)$
