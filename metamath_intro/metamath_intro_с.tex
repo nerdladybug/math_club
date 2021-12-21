@@ -114,7 +114,7 @@
 \usepackage{multicol}
 
 \usepackage{array}
-	
+
 \begin{document}
 	\maketitle
 	
@@ -415,7 +415,10 @@
 	\end{definition}
 
 	\begin{definition}[\textsection 25]
-		\textit{Подстановка} вместо пропозициональной буквы (или одновременно вместо нескольких различных пропозициональных пропозициональных букв) определяется как для переменной в \textsection 18, за исключением того, что подстановка применяется теперь ко всем вхождениям без исключений (так как нет связанных вхождений).
+		\textit{Подстановка} вместо пропозициональной буквы (или одновременно вместо
+		нескольких различных пропозициональных пропозициональных букв) определяется как для
+		переменной в \textsection 18, за исключением того, что подстановка применяется теперь
+		ко всем вхождениям без исключений (так как нет связанных вхождений).
 	\end{definition}
 
 	\begin{theorem}[\textsection 25, Подстановка вместо пропозициональных букв]
@@ -453,5 +456,110 @@
 		формулы, теорема 4 содержится в теореме 3.
 	\end{theorem}
 
+	\begin{definition}[\textsection 26]
+		Пусть $A$ и $B$ --- формулы. Введём запись ``$A \sim B$'' в качестве сокращения для записи
+		$(A \supset B) \conj\ (B \supset A)$. Символ ``$\sim$'' можно читать ``эквивалентна''. Он
+		употребляется в качестве формального оператора, который, будучи помещён между двумя
+		формулами системы, даёт другую формулу этой системы. При опускании скобок ему
+		приписывается ранг более высокий, чем другим формальным операторам (\textsection 17)
 		
+		$A$ \textit{эквивалентна} $B$ в исчислении высказываний или в другой формальной система,
+		если в этой формальной системе $\vdash A \sim B$. Здесь слово ``эквивалентна''
+		употребляется в качестве метаматематического глагола, который, будучи помещён между 2
+		формулами системы, даёт высказывание об этих формулах 
+	\end{definition}
+
+	\newpage
+	\begin{theorem}[\textsection 26]
+		Если $A$, $B$ и $C$ --- формулы, то:
+		\begin{itemize}[label={}]
+			\setlength\itemsep{0pt}	
+			\item 1. $\vdash A \supset A$ --- принцип тождества
+			\item 2. $A \supset B, B \supset C \vdash A \supset C$ --- 
+				цепное заключение
+			\item 3. $A \supset (B \supset C) \vdash B \supset (A \supset C)$ ---
+				перестановка посылок
+			\item 4. $A \supset (B \supset C) \vdash A \conj B \supset C$ ---
+				импортация
+			\item 5. $A \conj B \supset C \vdash A \supset (B \supset C)$ ---
+				экспортация
+		\end{itemize}
+		
+		Введение в импликацию
+		\begin{itemize}[label={}]
+			\setlength\itemsep{0pt}	
+			\item 6. $A \supset B \vdash (B \supset C) \supset (A \supset C)$ --- заключения
+			\item 7. $A \supset B \vdash (C \supset A) \supset (C \supset B)$ --- посылки
+			\item 8a. $A \supset B \vdash A \conj C \supset B \conj C$ ---
+				конъюнктивного члена
+			\item 8b. $A \supset B \vdash C \conj A \supset C \conj B$
+			\item 9a. $A \supset B \vdash A \vee C \supset B \vee C$ ---
+				дизъюнктивного члена
+			\item 9b. $A \supset B \vdash C \vee A \supset C \vee A$ 
+		\end{itemize}
+	
+		Доказательство импликации путём
+		\begin{itemize}[label={}]
+			\setlength\itemsep{0pt}	
+			\item 10a. $\neg A \vdash A \supset B$ --- опровержения посылки
+			\item 10b. $A \vdash \neg A \supset B$
+			\item 11. $B \vdash A \supset B$ --- доказательства заключения
+		\end{itemize}
+	
+		Контрапозиция
+		\begin{itemize}[label={}]
+			\setlength\itemsep{0pt}	
+			\item 12. $A \supset B \vdash \neg B \supset \neg A$
+			\item 13. $A \supset \neg B \vdash B \supset \neg A$
+			
+			со снятием двойного отрицания
+			\item 14$^{\circ}$. $\neg A \supset B \vdash \neg B \supset A$
+			\item 15$^{\circ}$. $\neg A \supset \neg B \vdash B \supset A$
+		\end{itemize}
+	
+		По определению $\sim$ в терминах $\supset$ и $\conj$
+		\begin{itemize}[label={}]
+			\setlength\itemsep{0pt}	
+			\item 16. $A \supset B, B \supset A \vdash A \sim B$
+			\item 17a. $A \sim B \vdash A \supset B$
+			\item 17b. $A \sim B \vdash B \supset A$
+			\item 18a. $A \sim B, A \vdash B$
+			\item 18b. $A \sim B, B \vdash A$
+			\item 19. $\vdash A \sim A$ --- рефлексивность
+			\item 20. $A \sim B \vdash B \sim A$ --- симметричность
+			\item 21. $A \sim B, B \sim C \vdash A \sim C$ --- транзитивность
+		\end{itemize}
+	
+	
+		Дополнительные результаты, представляющие интерес в связи с интуиционистской системой
+		\begin{itemize}[label={}]
+			\setlength\itemsep{0pt}	
+			\item 22. $A \supset (B \supset C), \neg \neg A, \neg \neg B \vdash \neg \neg C$
+			\item 23. $\neg \neg (A \supset B) \vdash \neg \neg A \supset \neg \neg B$
+			\item 24. $\neg \neg (A \supset B), \neg \neg (B \supset C) \vdash \neg \neg (A \supset C)$
+			\item 25. $\vdash \neg \neg (A \conj B) \sim \neg \neg A \conj \neg \neg B$; в частности
+				$\vdash \neg \neg (A \sim B) \sim \neg \neg (A \supset B) \conj \neg \neg (B \supset A)$
+		\end{itemize}
+	\end{theorem}
+	
+	\begin{definition}[\textsection 26]
+		Пусть $A$ --- формальное выражение. Рассмотрим другое формальное выражение $C$. Может
+		случиться, что $F$ входит в $C$ как (связная) часть, причём это возможно более чем одним
+		способом. Допустим, что это имеет место и что, если это осуществляется более чем одним
+		способом, то выделено некоторое конкретное вхождение $A$ в $C$. Обозначим теперь $C$ вместе
+		с выделенным конкретным вхождением $A$ в $C$ через ``$C_A$''. В обозначении сочленения
+		$C_A$ есть $EAF$, где $E$ и $F$ --- части (возможно, пустые), предшествующая и следующая за
+		этой выделенной частью $A$. Пусть теперь $B$ --- какое-то формальное выражение. Результатом
+		\textit{замены} этой выделенной части $A$ выражения $C$ на $B$ есть выражение $EBF$.
+		Обозначим через $C_B$. 
+	\end{definition}
+
+	\begin{theorem}[\textsection 26, Теорема о замене]
+		Если $A$, $B$, $C_A$ и $C_B$ --- пропозициональные формулы, связанные друг с другом, как в
+		предыдущем определении замены, то		
+		\begin{center}
+			$A \sim B \vdash C_A \sim C_B$
+		\end{center}
+	\end{theorem}
+
 \end{document}
