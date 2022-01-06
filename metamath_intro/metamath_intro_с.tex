@@ -561,7 +561,76 @@
 			$A \sim B \vdash C_A \sim C_B$
 		\end{center}
 	\end{theorem}
+	
+	\setcounter{theorem}{5}
+	
+	\begin{theorem}[\textsection 26, Леммы для замены]
+		Если $A$, $B$, $C$ ---  формулы, то
+		\begin{multicols}{2}		
+			\begin{itemize}[label={}]
+				\setlength\itemsep{0pt}	
+				\item 26. $A \sim B \vdash A \supset C \sim B \supset C$
+				\item 27. $A \sim B \vdash C \supset A \sim C \supset B$
+				\item 28a. $A \sim B \vdash A \conj C \sim B \conj C$
+				\item 28b. $A \sim B \vdash C \conj A \sim C \conj B$
+				\item 29a. $A \sim B \vdash A \vee C \sim B \vee C$
+				\item 29b. $A \sim B \vdash C \vee A \sim C \vee B$
+				\item 30. $A \sim B \vdash \neg A \sim \neg B$
+				\item[\vspace{\fill}]
+			\end{itemize}
+		\end{multicols}
+	\end{theorem}
 
+	\setcounter{theorem}{5}
+	
+	\begin{theorem}[\textsection 26, вторая форма]
+		Если $A$ и $B$ --- формулы, $C_A$ --- формула, построенная из некоторого конкретного
+		вхождения $A$ с помощью одних только операторов $\supset$, $\conj$, $\vee$, $\neg$, а
+		 $C_B$ получается из $C_A$ заменой этого вхождения $A$ на $B$, то		
+		\begin{center}
+			$A \sim B \vdash C_A \sim C_B$
+		\end{center}
+	\end{theorem}
 
-	ЛЕММЫ ДЛЯ ЗАМЕНЫ ТАМ ЖЕ!!!!
+	\setcounter{theorem}{5}
+	
+	\begin{theorem}[\textsection 26, Следствие: свойство замены для эквивалентности]
+		В условиях теоремы (в любой форме)		
+		\begin{center}
+			$A \sim B, C_A \vdash C_B$
+		\end{center}
+	\end{theorem}
+
+	\begin{theorem}[\textsection 27]
+		%%
+		%% TODO: аналогично теореме 5
+		%%
+	\end{theorem}
+
+	\begin{theorem}[\textsection 27, используется постулат \circled{$8^{\circ}$}]
+		Пусть $D$ --- пропозициональная формула, построенная из различных пропозициональных букв $P_1,\dots, P_m$ и их отрицаний $\neg P_1, \dots, \neg P_m$ с помощью одних только операторов $\conj$, $\vee$. Тогда формула $D^{\dagger}$, эквивалентная $\neg D$, получается в результате замены друг на друга в $D$ символов $\conj$ и $\vee$ и ещё каждой буквы и её отрицания.
+		
+		Другими словами, если $D$ --- пропозициональная формула описанного рода, а $D^{\dagger}$ --- результат описанной замены друг на друга в $D$, то 
+		\begin{center}
+			$\vdash \neg D \sim D^{\dagger}$
+		\end{center}
+	\end{theorem}
+
+	\setcounter{theorem}{7}
+	
+	\begin{theorem}[\textsection 27, Следствие: принцип двойственности]
+		Эквивалентность между двумя \textit{формулами} $E$ и $F$ \textit{описанного в теореме 8 типа} сохраняется при замене друг на друга в $E$ и $F$ символов $\conj$ и $\vee$.
+		
+		Другими словами, если $E$ и $F$ --- две такие пропозициональные формулы, а $E'$ и $F'$ получаются в результате указанной замены друг на друга в $E$ и $F$ соответственно, то
+		\begin{center}
+			из $\vdash E \sim F$ следует $\vdash E' \sim F'$
+		\end{center}
+	\end{theorem}
+
+	\setcounter{theorem}{7}
+	
+	\begin{theorem}[\textsection 27, Следствие: вторая часть, соотношение обратной двойственности]
+		При тех же условиях из $\vdash E \supset F$ следует $\vdash F' \supset E'$
+	\end{theorem}
+	
 \end{document}
