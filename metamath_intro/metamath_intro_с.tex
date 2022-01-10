@@ -603,64 +603,66 @@
 
 	\begin{theorem}[\textsection 27]
 		Если $A$, $B$ и $C$ --- формулы, то:
+		
+		Законы
 		\begin{itemize}[label={}]
-			\setlength\itemsep{0pt}	
-			\item 31. $\vdash (A \conj B) \conj C \sim A \conj (B \conj C)$ --- ассоциативность			
+			\setlength\itemsep{0pt}
+			\item 31. $\vdash (A \conj B) \conj C \sim A \conj (B \conj C)$ --- ассоциативности			
 			\item 32. $\vdash (A \vee B) \vee C \sim A \vee (B \vee C)$				
-			\item 33. $\vdash  A \conj B \sim B \conj A$  --- коммутативность			
+			\item 33. $\vdash  A \conj B \sim B \conj A$  --- коммутативности			
 			\item 34. $\vdash  A \vee B \sim B \vee A$
-			\item 35. $\vdash A \conj (B \vee C) \sim (A \conj B) \vee (A \conj C)$ --- дистрибутивность				
+			\item 35. $\vdash A \conj (B \vee C) \sim (A \conj B) \vee (A \conj C)$ --- дистрибутивности				
 			\item 36. $\vdash A \vee (B \conj C) \sim (A \vee B) \conj (A \vee C)$				
-			\item 37. $\vdash A \conj A \sim A$ --- идемпотентность 				
+			\item 37. $\vdash A \conj A \sim A$ --- идемпотентности 				
 			\item 38. $\vdash A \vee A \sim A$		
-			\item 39. $\vdash A \conj (A \vee B) \sim A$ --- элиминация			
+			\item 39. $\vdash A \conj (A \vee B) \sim A$ --- элиминации			
 			\item 40. $\vdash A \vee (A \conj B) \sim A$
 		\end{itemize}
 		
-		Специальные случаи импликации конъюнкции и дизъюнкции:
+		Специальные случаи
 		\begin{itemize}[label={}]
 			\setlength\itemsep{0pt}	
-			\item 41. $A \vdash A \supset B \sim B$			
+			\item 41. $A \vdash A \supset B \sim B$	--- импликации		
 			\item 42. $B \vdash A \supset B \sim B$			
 			\item 43. $\neg A \vdash A \supset B \sim \neg A$			
 			\item 44. $\neg B \vdash A \supset B \sim \neg A$			
-			\item 45. $B \vdash A \conj B \sim A$			
-			\item 46. $B \vdash A \vee B \sim B$		
-			\item 47. $\neg B \vdash A \conj B \sim B$		
+			\item 45. $B \vdash A \conj B \sim A$ --- конъюнкции			
+			\item 47. $\neg B \vdash A \conj B \sim B$	
+			\item 46. $B \vdash A \vee B \sim B$	 --- дизъюнкции		
 			\item 48. $\neg B \vdash A \vee B \sim A$
 		\end{itemize}
 		
 		\begin{itemize}[label={}]
 			\setlength\itemsep{0pt}	
-			\item 49. $\vdash \neg \neg A \sim A$ --- закон двойного отрицания		
-			\item 50. $\vdash \neg (A \conj \neg A)$ --- закон отрицания противоречия		
-			\item 51. $\vdash A \vee \neg A$ --- закон исключенного третьего
+			\item 49$^\circ$. $\vdash \neg \neg A \sim A$ --- закон двойного отрицания		
+			\item 50. $\vdash \neg (A \conj \neg A)$ --- отрицание противоречия		
+			\item 51$^\circ$. $\vdash A \vee \neg A$ --- закон исключенного третьего
 		\end{itemize}
 		
-		Для упрощения дизъюнкции конъюнкций или конъюнкции дизъюнкций:
+		Для упрощения дизъюнкции конъюнкций или конъюнкции дизъюнкций
 		\begin{itemize}[label={}]
 			\setlength\itemsep{0pt}	
-			\item 52. $\vdash A \conj (B \vee \neg B) \sim A$		
+			\item 52$^\circ$. $\vdash A \conj (B \vee \neg B) \sim A$		
 			\item 53. $\vdash A \vee (B \conj \neg B) \sim A$		
 			\item 54. $\vdash A \conj B \conj \neg B \sim B \conj \neg B$		
 			\item 55. $\vdash A \vee B \vee \neg B \sim B \vee \neg B$
 		\end{itemize}
 		
-		Выражение каждого члена любой пары из $\supset, \conj, \vee$ через другой член этой пары и $\neg$:
+		Выражение каждого члена любой пары из $\supset$, $\conj$, $\vee$ через другой член этой пары и $\neg$
 		\begin{itemize}[label={}]
 			\setlength\itemsep{0pt}	
-			\item 56. $\vdash A \vee B \sim \neg (\neg A \conj \neg B)$	
-			\item 57. $\vdash A \conj B \sim \neg (\neg A \vee \neg B)$	
-			\item 58. $\vdash A \supset B \sim \neg (A \conj \neg B)$	
-			\item 59. $\vdash A \supset B \sim \neg A \conj \vee B$	
-			\item 60. $\vdash A \conj B \sim \neg (A \supset \neg B)$		
-			\item 61. $\vdash A \vee B \sim \neg A \supset B$
+			\item 56$^\circ$. $\vdash A \vee B \sim \neg (\neg A \conj \neg B)$	
+			\item 57$^\circ$. $\vdash A \conj B \sim \neg (\neg A \vee \neg B)$	
+			\item 58$^\circ$. $\vdash A \supset B \sim \neg (A \conj \neg B)$	
+			\item 59$^\circ$. $\vdash A \supset B \sim \neg A \vee B$	
+			\item 60$^\circ$. $\vdash A \conj B \sim \neg (A \supset \neg B)$		
+			\item 61$^\circ$. $\vdash A \vee B \sim \neg A \supset B$
 		\end{itemize}
 		
-		Перенос $\neg$ через $\conj$ и $\vee$:
+		Перенос $\neg$ через $\conj$ и $\vee$ (законы де Моргана[1847])
 		\begin{itemize}[label={}]
 			\setlength\itemsep{0pt}	
-			\item 62. $\vdash \neg (A \conj B) \sim \neg A \vee \neg B$
+			\item 62$^\circ$. $\vdash \neg (A \conj B) \sim \neg A \vee \neg B$
 			\item 63. $\vdash \neg (A \vee B) \sim \neg A \conj \neg B$
 		\end{itemize}
 		
@@ -669,29 +671,29 @@
 			\setlength\itemsep{0pt}	
 			\item 49a. $\vdash A \supset \neg \neg A$		
 			\item 49b. $\vdash \neg \neg \neg A \sim \neg A$		
-			\item 49c. $\vdash A \vee \neg A \supset (\neg \neg A \supset A); следовательно, \vdash A \vee \neg A \supset (\neg \neg A \sim A)$		
+			\item 49c. $\vdash A \vee \neg A \supset (\neg \neg A \supset A)$; следовательно $ \vdash A \vee \neg A \supset (\neg \neg A \sim A)$		
 			\item 50a. $\vdash \neg (A \sim \neg A)$		
 			\item 51a. $\vdash \neg \neg (A \vee \neg A)$		
-			\item 56a. $\vdash A \vee B \supset \neg (\neg A \conj \neg B)$		
-			\item 51b. $\vdash \neg \neg (\neg \neg A \supset A)$		
+			\item 51b. $\vdash \neg \neg (\neg \neg A \supset A)$				
+			\item 56a. $\vdash A \vee B \supset \neg (\neg A \conj \neg B)$
 			\item 56b. $\vdash \neg A \vee B \supset \neg (A \conj \neg B)$		
-			\item 57a. $\vdash A \conj B \supset \neg (\neg A \vee \neg B)$	
-			\item 58a. $\vdash (A \supset B) \supset \neg (A \conj \neg B)$			
-			\item 57b. $\vdash A \conj \neg B \supset \neg (\neg A \vee B)$			
+			\item 57a. $\vdash A \conj B \supset \neg (\neg A \vee \neg B)$				
+			\item 57b. $\vdash A \conj \neg B \supset \neg (\neg A \vee B)$	
+			\item 58a. $\vdash (A \supset B) \supset \neg (A \conj \neg B)$		
 			\item 58b-d. $\vdash A \supset \neg B \sim \neg (A \conj B) \sim \neg \neg A \supset \neg B \sim \neg \neg (\neg A \vee \neg B)$			
 			\item 58e,f. $\neg \neg B \supset B \vdash \neg \neg A \supset B \sim A \supset B \sim \neg (A \conj \neg B)$			
 			\item 58g. $\vdash (\neg \neg A \supset B) \supset \neg (A \conj \neg B)$			
-			\item 59a. $\vdash \neg A \vee B \supset (A \supset B)$			
-			\item 60a. $\vdash A \conj B \supset \neg (A \supset \neg B)$			
+			\item 59a. $\vdash \neg A \vee B \supset (A \supset B)$				
 			\item 59b. $\vdash (A \supset B) \supset \neg \neg (\neg A \vee B)$			
-			\item 60b. $\vdash A \conj \neg B \supset \neg (A \supset B)$			
 			\item 59c. $\vdash (\neg A \supset B) \supset \neg \neg (A \vee B)$			
-			\item 60c. $\vdash \neg \neg A \conj B \supset \neg (A \supset \neg B)$			
-			\item 61a. $\vdash A \vee B \supset (\neg A \supset B)$			
+			\item 60a. $\vdash A \conj B \supset \neg (A \supset \neg B)$			
+			\item 60b. $\vdash A \conj \neg B \supset \neg (A \supset B)$		
+			\item 60c. $\vdash \neg \neg A \conj B \supset \neg (A \supset \neg B)$				
 			\item 60d-f. $\vdash \neg \neg A \conj \neg B \sim \neg (A \supset B) \sim \neg (\neg A \vee B) \sim \neg \neg (A \conj \neg B)$
 			\item 60g-i. $\vdash \neg \neg (A \supset B) \sim \neg (A \conj \neg B) \sim A \supset \neg \neg B \sim \neg \neg A \supset \neg \neg B$
-			\item 62a. $\vdash \neg A \vee \neg B \supset \neg (A \conj B)$
+			\item 61a. $\vdash A \vee B \supset (\neg A \supset B)$
 			\item 61b. $\vdash \neg (A \vee B) \sim \neg (\neg A \supset B)$
+			\item 62a. $\vdash \neg A \vee \neg B \supset \neg (A \conj B)$		
 		\end{itemize}
 	\end{theorem}
 
