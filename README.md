@@ -7,8 +7,8 @@
 
 ### Сейчас читаем
 	
-- [Клини, "Введение в метаматематику"](https://github.com/nerdladybug/math_club/blob/main/metamath_intro)
-- Маклейн, Категории для работающего математика
+- [Клини, "Введение в метаматематику"](https://github.com/nerdladybug/math_club/tree/main/metamath_intro)
+- [Маклейн, Категории для работающего математика](https://github.com/nerdladybug/math_club/tree/main/category)
 - Гросс М., Лантен А., Теория формальных грамматик
 
 | Пн | Вт | Ср | Чт | Пт | Сб                           | Вс            |
