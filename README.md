@@ -8,8 +8,8 @@
 ### Сейчас читаем
 	
 - [Клини, "Введение в метаматематику"](https://github.com/nerdladybug/math_club/tree/main/metamath_intro)
-- [Маклейн, Категории для работающего математика](https://github.com/nerdladybug/math_club/tree/main/category)
-- Гросс М., Лантен А., Теория формальных грамматик
+- [Маклейн, "Категории для работающего математика"](https://github.com/nerdladybug/math_club/tree/main/category)
+- Гросс М., Лантен А., "Теория формальных грамматик"
 - Винберг, "Курс алгебры"
 
 | Пн | Вт | Ср | Чт | Пт | Сб                           | Вс                             |
