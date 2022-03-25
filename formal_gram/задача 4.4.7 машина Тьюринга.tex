@@ -1,0 +1,481 @@
+\documentclass[a4paper, 12pt]{article}  % добавить leqno в [] для нумерации слева
+
+%%% Работа с русским языком
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{pscyr}
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая
+
+%% Номера формул
+\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+%% Шрифты
+\usepackage{euscript} % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+
+%% Первый абзац после секшиона
+\usepackage{indentfirst}
+
+%% Свои команды
+\DeclareMathOperator{\pphi}{\mathop{\varphi}}
+\DeclareMathOperator{\eps}{\mathop{\varepsilon}}
+\DeclareMathOperator{\conj}{\mathbb{\&}}
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+	{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%% Поля
+\usepackage[left=1cm, right=1.4cm, top=1cm, bottom=1.3cm]{geometry}
+
+%% Графика
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+
+%% Переименовать список литературы
+\addto\captionsrussian{\def\refname{Литература}}
+
+%%% Заголовок
+\author{Мат.клуб ``Тифаретник'' по С. Клини}
+\title{Введение в метаматематику на троечку}
+\date{\today}
+
+%%% Эпиграф
+\usepackage{epigraph}
+\setlength\epigraphwidth{9cm}
+
+%%% Работа с картинками
+\usepackage{graphicx}  % Для вставки рисунков
+\graphicspath{{images/}{images2/}}  % папки с картинками
+\setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig} % Обтекание рисунков и таблиц текстом
+
+%%% Добавляем код. Окружение lstlisting
+\usepackage{listings}
+\usepackage{color}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{bggray}{RGB}{244,244,244}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset
+{
+	backgroundcolor=\color{bggray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+	basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+	breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=b,                    % sets the caption-position to bottom
+	commentstyle=\color{mygreen},    % comment style
+	deletekeywords={...},            % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	%	firstnumber=1000,                % start line enumeration with line 1000
+	%	frame=single,	                   % adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       % keyword style
+	language=c,                 	 % the language of the code
+	morekeywords={*,...},            % if you want to add more keywords to the set
+	numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mymauve},     % string literal style
+	tabsize=3,	                     % sets default tabsize to 2 spaces
+	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title	
+}
+
+%%% Ссылки
+\usepackage{hyperref}
+
+%%% Окружения
+\theoremstyle{definition}
+\newtheorem{theorem}{Теорема}
+\newtheorem*{definition}{Определение}
+\newtheorem*{pr}{Доказательство}
+
+%%% Цифры в кружке
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+%%% Перечисление кастомное
+\usepackage{enumitem}
+
+%%% Естественный вывод
+\usepackage{bussproofs}
+
+%%% Несколько колонок для перечислений
+\usepackage{multicol}
+
+\usepackage{array}
+
+%% no page numbering
+%\pagenumbering{gobble}
+
+\begin{document}
+	
+	\subsection*{Задача 7}
+	
+	Построить машину Тьюринга, которая вычисляла бы $i$-ю проекцию $n$-ки натуральных чисел:
+	$$U^{(n)}_i (x_1, x_2, \dots, x_n) = x_i, 1 \le i \le n$$
+	
+	\subsection*{Решение}
+	
+	Алфавит для слов $\mathscr{U} = \{|\}$. На ленте первое число $i$, дальше $n$-ка натуральных чисел. 
+	
+		\begin{multicols}{4}
+		\begin{tabular}{ | c | c |  }
+			\hline
+			Имена & Команды \\ 
+			\hline
+			INIT & $q_0 \; | \; n \; q_1$ \\
+			0M3 & $q_0 \; m \; L \; q_3$ \\
+			\hline
+			1| & $q_1 \; | \; L \; q_1$ \\
+			1B2 & $q_1 \; B \; m \; q_2$ \\
+			1M & $q_1 \; m \; L \; q_1$ \\
+			1N & $q_1 \; n \; L \; q_1$ \\
+			\hline
+			2| & $q_2 \; | \; R \; q_2$ \\
+			2B0 & $q_2 \; B \; L \; q_0$ \\
+			2M & $q_2 \; m \; R \; q_2$ \\
+			2N & $q_2 \; n \; B \; q_2$ \\
+			\hline
+		\end{tabular}
+		
+		\begin{tabular}{ | c | c |  }
+			\hline
+			Имена & Команды \\ 
+			\hline
+			3| & $q_3 \; | \; L \; q_3$ \\
+			3B4 & $q_3 \; B \; R \; q_4$ \\
+			3M & $q_3 \; m \; L \; q_3$ \\
+			\hline
+			4| & $q_4 \; | \; R \; q_4$ \\
+			4B & $q_4 \; B \; L \; q_4$ \\
+			4M5 & $q_4 \; m \; n \; q_5$ \\
+			4N9 & $q_4 \; n \; B \; q_9$ \\
+			\hline
+			5| & $q_5 \; | \; R \; q_5$ \\
+			5M6 & $q_5 \; m \; n \; q_6$ \\
+			5N & $q_5 \; n \; R \; q_5$ \\
+			\hline
+		\end{tabular}
+		
+		\begin{tabular}{ | c | c |  }
+			\hline
+			Имена & Команды \\ 
+			\hline
+			6| & $q_6 \; | \; B \; q_6$ \\
+			6B & $q_6 \; B \; R \; q_6$ \\
+			6M7 & $q_6 \; m \; R \; q_7$ \\
+			6N & $q_6 \; n \; R \; q_6$ \\
+			\hline
+			7| & $q_7 \; | \; L \; q_7$ \\
+			7B8 & $q_7 \; B \; L \; q_8$ \\
+			7M8 & $q_7 \; m \; B \; q_8$ \\
+			\hline
+			8B6 & $q_8 \; B \; L \; q_6$ \\
+			8M4 & $q_8 \; m \; B \; q_4$ \\
+			\hline
+		\end{tabular}
+		
+		\begin{tabular}{ | c | c |  }
+			\hline
+			Имена & Команды \\ 
+			\hline
+			9| & $q_9 \; | \; L \; q_9$ \\
+			9B & $q_9 \; B \; L \; q_9$ \\
+			9N10 & $q_9 \; n \; B \; q_{10}$ \\
+			\hline
+			10| & $q_{10} \; | \; B \; q_{10}$ \\
+			10B11 & $q_{10} \; B \; L \; q_{11}$ \\
+			\hline
+			11|10 & $q_{11} \; | \; | \; q_{10}$ \\
+			11B12 & $q_{11} \; B \; L \; q_{12}$ \\
+			\hline
+			12|10 & $q_{12} \; | \; | \; q_{10}$ \\
+			STOP & $q_{12} \; B \; L \; q_{stop}$ \\
+			\hline
+		\end{tabular}
+	\end{multicols}
+	
+	\subsubsection*{Проверка}
+	Вычисление $U^{(3)}_2 (0, 2, 1) = 2$.
+	
+	\begin{multicols}{2}		
+		\begin{tabular}{ | c | c | }
+			\hline
+			Имена & Конфигурации \\ 
+			\hline
+			INIT & $B \; (q_0 \; |) \; | \; | \; B\; | \;  B \; | \; | \; | \; B \; | \; | \;  B$ \\
+			1N & $B \; (q_1 \; n) \; | \; | \; B\; | \;  B \; | \; | \; | \; B \; | \; | \;  B$ \\
+			1| & $B \;  n \;(q_1 \; |) \; | \; B\; | \;  B \; | \; | \; | \; B \; | \; | \;  B$ \\
+			\dots & \dots \\
+			1B2 & $B \;  n \; | \; | \; (q_1 \; B) \; | \;  B \; | \; | \; | \; B \; | \; | \;  B$ \\
+			2M & $B \;  n \; | \; | \; (q_2 \; m) \; | \;  B \; | \; | \; | \; B \; | \; | \;  B$ \\
+			2| & $B \;  n \; | \; (q_2 \; |) \;  m \; | \;  B \; | \; | \; | \; B \; | \; | \;  B$ \\
+			\dots & \dots \\
+			2N & $B \;  (q_2 \; n) \; | \;  | \;  m \; | \;  B \; | \; | \; | \; B \; | \; | \;  B$ \\
+			2B0 & $B \;  (q_2 \; B) \; | \;  | \;  m \; | \;  B \; | \; | \; | \; B \; | \; | \;  B$ \\
+			INIT & $ B \; (q_0 \; |) \;  | \;  m \; | \;  B \; | \; | \; | \; B \; | \; | \;  B$ \\
+			%			& $ B \; (q_1 \; n) \;  | \;  m \; | \;  B \; | \; | \; | \; B \; | \; | \;  B$ \\
+			%			& $ B \;  n \;  (q_1 \; |) \;  m \; | \;  B \; | \; | \; | \; B \; | \; | \;  B$ \\
+			%			& $ B \;  n \;   | \; (q_1 \; m) \; | \;  B \; | \; | \; | \; B \; | \; | \;  B$ \\
+			%			& $ B \;  n \;   | \;  m \; (q_1 \; |) \;  B \; | \; | \; | \; B \; | \; | \;  B$ \\
+			\dots & \dots \\
+			1B2 & $ B \;  n \;   | \;  m \;  | \; (q_1 \; B) \; | \; | \; | \; B \; | \; | \;  B$ \\
+			\dots & \dots \\
+			INIT & $ B \; (q_0 \;  |) \;  m \;  | \;  m \; | \; | \; | \; B \; | \; | \;  B$ \\
+			\dots & \dots \\
+			1B2 & $ B \;  n \;  m \;  | \; m \; | \; | \; | \; (q_1 \; B) \; | \; | \;  B$ \\
+			\dots & \dots \\
+			0M3 & $ B \; (q_0 \; m) \;  | \;  m \; | \; | \; | \; m \; | \; | \;  B$ \\
+			3| & $ B \;  m \; (q_3 \;  |) \;  m \; | \; | \; | \; m \; | \; | \;  B$ \\
+			\dots & \dots \\
+			3B4 & $ B \;  m \;  | \;  m \; | \; | \; | \; m \; | \; | \;  (q_3 \; B ) \; B$ \\
+			4| & $ B \;  m \;  | \;  m \; | \; | \; | \; m \; | \; (q_4 \; |) \; B $ \\
+			\dots & \dots \\
+			4M5 & $ B \;  m \;  | \;  m \; | \; | \; | \; (q_4 \; m) \; | \;  | \; B $ \\
+			5N & $ B \;  m \;  | \;  m \; | \; | \; | \; (q_5 \; n) \; | \;  | \; B $ \\
+			\hline
+		\end{tabular}
+		
+		\begin{tabular}{ | c | c | }
+			\hline
+			Имена & Конфигурации \\ 
+			\hline
+			5N & $ B \;  m \;  | \;  m \; | \; | \; | \; (q_5 \; n) \; | \;  | \; B $ \\
+			\dots & \dots \\
+			5M6 & $ B \;  m \;  | \; (q_5 \; m) \; | \; | \; | \;  n \; | \;  | \; B $ \\
+			6N & $ B \;  m \;  | \; (q_6 \; n) \; | \; | \; | \;  n \; | \;  | \; B $ \\
+			6| & $ B \;  m \; (q_6 \; |) \;  n \; | \; | \; | \;  n \; | \;  | \; B $ \\
+			6B & $ B \;  m \; (q_6 \; B) \;  n \; | \; | \; | \;  n \; | \;  | \; B $ \\
+			6M7 & $ B \; (q_6 \; m) \;  B \;  n \; | \; | \; | \;  n \; | \;  | \; B $ \\
+			7B8 & $ B \; (q_7 \; B) \; m \;  B \;  n \; | \; | \; | \;  n \; | \;  | \; B $ \\
+			8M4 & $ B \; (q_8 \; m) \;  B \;  n \; | \; | \; | \;  n \; | \;  | \; B $ \\
+			4B & $ B \; (q_4 \; B) \;  B \;  n \; | \; | \; | \;  n \; | \;  | \; B $ \\
+			\dots & \dots \\
+			4N9 & $  B \;  (q_4 \; n) \; | \; | \; | \;  n \; | \;  | \; B $ \\
+			9B & $  B \;  (q_9 \; B) \; | \; | \; | \;  n \; | \;  | \; B $ \\
+			9| & $  B \; (q_9 \; |) \; | \; | \;  n \; | \;  | \; B $ \\
+			\dots & \dots \\
+			9N10 & $  B \; | \; | \; | \;  (q_9 \; n) \; | \;  | \; B $ \\
+			10B11 & $  B \; | \; | \; | \;  (q_{10} \; B) \; | \;  | \; B $ \\
+			11|10 & $  B \; | \; | \; | \;  B \; (q_{11} \; |) \;  | \; B $ \\
+			10| & $  B \; | \; | \; | \;  B \; (q_{10} \; |) \;  | \; B $ \\
+			10B11 & $  B \; | \; | \; | \;  B \; (q_{10} \; B) \;  | \; B $ \\
+			11|10 & $  B \; | \; | \; | \;  B \;  B \; (q_{11} \; |) \; B $ \\
+			10| & $  B \; | \; | \; | \;  B \;  B \; (q_{10} \; |) \; B $ \\
+			10B11 & $  B \; | \; | \; | \;  B \;  B \; (q_{10} \; B) \; B $ \\
+			11B12 & $  B \; | \; | \; | \;  B \;  B \;  B \; (q_{11} \; B) $ \\
+			STOP & $  B \; | \; | \; | \;  B \;  B \;  B \; B \; (q_{12} \; B) $ \\
+			& $  B \; | \; | \; | \;  B \;  B \;  B \; B \; B \; (q_{stop} \; B) $ \\
+			\hline
+		\end{tabular}
+	\end{multicols}
+	
+	\subsubsection*{Конфигурации в общем случае}
+	
+	\begin{tabular}{ | c | c | }
+		\hline
+		Имена & Конфигурации \\ 
+		\hline
+		INIT & $B \; (q_0 \; |) \; | \dots | \; B\; |\dots| \; B \dots B \; | \dots | \; B$ \\
+		1N & $B \; (q_1 \; n) \; | \dots | \; B\; |\dots| \; B \dots B \; | \dots | \; B$ \\
+		1| & $B \;  n \; (q_1 \; |) \; | \dots | \; B\; |\dots| \; B \dots B \; | \dots | \; B$ \\
+		\dots & \dots \\
+		1B2 & $B \;  n \;  | \dots| \; (q_1 \; B)\; |\dots| \; B \dots B \; | \dots | \; B$ \\
+		2M & $B \;  n \;  | \dots| \; (q_2 \; m)\; |\dots| \; B \dots B \; | \dots | \; B$ \\
+		2| & $B \;  n \;  | \dots (q_2 \; |) \; m\; |\dots| \; B \dots B \; | \dots | \; B$ \\
+		\dots & \dots \\
+		2N & $B \; (q_2 \; n) \;  | \dots  | \; m\; |\dots| \; B \dots B \; | \dots | \; B$ \\
+		2B0 & $B \; (q_2 \; B) \;  | \dots  | \; m\; |\dots| \; B \dots B \; | \dots | \; B$ \\
+		%		\hline
+		INIT & $B \; (q_0 \; |) \; | \dots  | \; m\; |\dots| \; B \dots B \; | \dots | \; B$ \\
+		\dots & \dots \\
+		%		1B & $B \; n \; | \dots  | \; m\; |\dots| \; (q_1 \; B) \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		%		2M & $B \; n \; | \dots  | \; m\; |\dots| \; (q_2 \; m) \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		%		\dots & \dots \\
+		%		\hline
+		%		INIT & $B \; (q_0 \; |) \; | \dots  | \; m\; |\dots| \;  m \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		%		\dots & \dots \\
+		%		\hline
+		%		INIT & $B \; (q_0 \; |) \; m\; |\dots| \;  m \; | \dots | \; m \dots  m \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		%		\dots & \dots \\
+		%		1B & $B \; n \; m\; |\dots| \;  m \; | \dots | \; m \dots  m \; | \dots | \; (q_1 \; B) \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		%		\dots & \dots \\
+		%		2N & $B \; (q_2 \; n) \; m\; |\dots| \;  m \; | \dots | \; m \dots  m \; | \dots | \; m \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		%		2B & $B \; (q_2 \; B) \; m\; |\dots| \;  m \; | \dots | \; m \dots  m \; | \dots | \; m \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		%		\hline
+		0M3 & $ B \; (q_0\; m) \; |\dots| \;  m \; | \dots | \; m \dots  m \; | \dots | \; m \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		3| & $ B \; m \; (q_3 \; |) \; | \dots| \;  m \; | \dots | \; m \dots  m \; | \dots | \; m \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		\dots & \dots \\
+		3B4 & $ B \; m \; | \dots| \;  m \; | \dots | \; m \dots  m \; | \dots | \; m \; | \dots | \; (q_3 \; B) \; | \dots | \;B \dots  B \; | \dots | \; B$ \\
+		4| & $ B \; m \; | \dots| \;  m \; | \dots | \; m \dots  m \; | \dots | \; m \; | \dots | \; (q_4 \; |) \;  B  \dots  B \; | \dots | \; B$ \\
+		\dots & \dots \\
+		4M5 & $ B \; m \; | \dots| \;  m \; | \dots | \; m \dots  m \; | \dots | \; (q_4 \; m) \; | \dots | \; B  \dots  B \; | \dots | \; B$ \\
+		5N & $ B \; m \; | \dots| \;  m \; | \dots | \; m \dots  m \; | \dots | \; (q_5 \; n) \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		5M6 & $ B \; m \; | \dots| \;  m \; | \dots | \; m \dots m \; | \dots | \; (q_5 \; m) \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		6N & $ B \; m \; | \dots| \;  m \; | \dots | \; m \dots m \; | \dots | \; (q_6 \; n) \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		%		\hline
+		6| & $ B \; m \; | \dots| \;  m \; | \dots | \; m \dots m \; | \dots | \; (q_6 \; |) \;  n \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		6B & $ B \; m \; | \dots| \;  m \; | \dots | \; m \dots m \; | \dots | \; (q_6 \; B) \;  n \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		6| & $ B \; m \; | \dots| \;  m \; | \dots | \; m \dots m \; | \dots | \; (q_6 \; |) \;  B \;  n \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		\dots & \dots \\
+		6M7 & $ B \; m \; | \dots| \; m \dots m \; | \dots | \ (q_6 \; m) \; B \; B \dots B \; B \;  n \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		7| & $ B \; m \; | \dots| \; m \dots m \; | \dots | \; (q_7 \; |) \; m \; B \; B \dots B \; B \;  n \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		7M8 & $ B \; m \; | \dots| \; m \dots m \; | \dots | \; (q_7 \; m) \; B \; B \dots B \; B \;  n \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		8B6 & $ B \; m \; | \dots| \; m \dots m \; | \dots | \; (q_8 \; B) \; B \; B \dots B \; B \;  n \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		6| & $ B \; m \; | \dots| \; m \dots m \; | \dots | \; (q_6 \; |) \; B \; B \dots B \; B \;  n \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		\dots & \dots \\
+		%		\hline
+		7B8 & $ (q_7 \; B) \;  m \; B \; B \dots B \; B \;  n \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		8M4 & $ B \; (q_8 \; m) \; B \; B \dots B \; B \;  n \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		4B & $ B \; (q_4 \; B) \; B \; B \dots B \; B \;  n \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		\dots & \dots \\
+		4N9 & $ B \;  (q_4 \; n) \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		9B & $ B \;  (q_9 \; B) \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		9| & $ B \;  (q_9 \; |) \; | \dots | \;  n \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		\dots & \dots \\
+		9N10 & $ B \; | \dots | \; (q_9 \; n) \; | \dots | \; B \dots  B \; | \dots | \; B$ \\		
+		10B11 & $ B \; | \dots | \; (q_{10} \; B) \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		11|10 & $ B \; | \dots | \; B \; (q_{11} \; |) \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		10| & $ B \; | \dots | \; B \; (q_{10} \; |) \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		\dots & \dots \\
+		11B12 & $ B \; | \dots | \; B \; B \dots B \; B \; (q_{11} \; B) \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		12|10 & $ B \; | \dots | \; B \; B \dots B \; B \; (q_{12} \; |) \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		10| & $ B \; | \dots | \; B \; B \dots B \; B \; (q_{10} \; |) \; | \dots | \; B \dots  B \; | \dots | \; B$ \\
+		\dots & \dots \\
+		11B12 & $ B \; | \dots | \; B \; B \dots B \; B \; (q_{11} \; B) \; B$\\
+		STOP & $ B \; | \dots | \; B \; B \dots B \; B \; (q_{12} \; B) \; B$\\
+		& $ B \; | \dots | \; B \; B \dots B \; B \; (q_{stop} \; B) \; B$\\
+		\hline
+	\end{tabular}
+	
+	\subsubsection*{Таблица состояний и граф переходов}
+	
+	\begin{center}
+		
+	\end{center}
+	
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item[] 
+			\begin{minipage}{\linewidth}\raggedright
+				\begin{tabular}{ | c | c | c | c | c | }
+					\hline
+					& $|$ & $B$ & $m$ & $n$ \\
+					\hline
+					$q_0$ & $q_1 \; n$ & - & $L \; q_3$ & - \\
+					\hline
+					$q_1$ & $L \; q_1$ & $q_2 \; m$ & $L \; q_1$ & $L \; q_1$  \\
+					\hline
+					$q_2$ & $R \; q_2$ & $L \; q_0$ & $R \; q_2$ & $q_2 \; B$ \\
+					\hline
+					$q_3$ & $L \; q_3$ & $R \; q_4$ & $L \; q_3$ & - \\
+					\hline
+					$q_4$ & $R \; q_4$ & $L \; q_4$ & $q_5 \; n$ & $q_9 \; B$ \\
+					\hline
+					$q_5$ & $R \; q_5$ & - & $q_6 \; n$ & $R \; q_5$ \\
+					\hline
+					$q_6$ & $q_6 \; B$ & $R \; q_6$ & $R \; q_7$ & $R \; q_6$ \\
+					\hline
+					$q_7$ & $L \; q_7$ & $L \; q_8$ & $q_8 \; B$ & - \\
+					\hline
+					$q_8$ & - & $L \; q_6$ & $q_4 \; B$ & - \\
+					\hline
+					$q_9$ & $L \; q_9$ & $L \; q_9$ & - & $q_{10} \; B$ \\
+					\hline
+					$q_{10}$ & $q_{10} \; B$ & $L \; q_{11}$ & - & - \\
+					\hline
+					$q_{11}$ & $q_{10} \; |$ & $L \; q_{12}$ & - & - \\
+					\hline
+					$q_{12}$ & $q_{10} \; |$ & $L \; q_{stop}$ & - & - \\
+					\hline
+					$q_{stop}$ & - & - & - & - \\
+					\hline
+				\end{tabular}	
+			\end{minipage}
+			\item[] 
+			\begin{minipage}{\linewidth}\raggedright
+				\begin{tikzpicture}[node distance={25mm}, thick, main/.style = {draw, circle}] 
+					\node[main] (0) {$q_0$}; 
+					\node[main] (1) [right of=0] {$q_1$}; 
+					\node[main] (2) [below of=1] {$q_2$}; 
+					\node[main] (3) [below of=0] {$q_3$}; 
+					\node[main] (4) [below of=3] {$q_4$};
+					\node[main] (5) [right of=4] {$q_5$};
+					\node[main] (6) [right of=5] {$q_6$};
+					\node[main] (7) [below of=6] {$q_7$};
+					\node[main] (8) [left of=7] {$q_8$};
+					\node[main] (9) [below of=4] {$q_9$};
+					\node[main] (10) [below of=9] {$q_{10}$};
+					\node[main] (11) [right of=10] {$q_{11}$};
+					\node[main] (12) [below of=11] {$q_{12}$};
+					\node[main] (13) [right of=12] {$q_{stop}$};
+								
+					\draw[->] (0) -- node[midway, above] {$|$} (1); 
+					
+					\draw[->] (1) to [out=360,in=30,looseness=10] node[midway, above right] {$|$} (1);
+					\draw[->] (1) to [out=345,in=15,looseness=10] node[midway, right] {$m$} (1); 
+					\draw[->] (1) to [out=330,in=360,looseness=10] node[midway, below] {$n$} (1); 
+					\draw[->] (1) -- node[midway, right] {$B$} (2); 
+					
+					\draw[->] (2) to [out=360,in=30,looseness=10] node[midway, above right] {$|$} (2); 
+					\draw[->] (2) to [out=345,in=15,looseness=10] node[midway, right] {$m$} (2); 
+					\draw[->] (2) to [out=330,in=360,looseness=10] node[midway, below] {$n$} (2);
+					\draw[->] (2) -- node[midway, below left] {$B$} (0);
+					
+					\draw[->] (0) -- node[midway, left] {$m$} (3);
+					\draw[->] (3) to [out=180,in=210,looseness=10] node[midway, below ] {$|$} (3); 
+					\draw[->] (3) to [out=165,in=195,looseness=10] node[midway, left] {$m$} (3);
+					\draw[->] (3) -- node[midway, left] {$B$} (4);
+					
+					\draw[->] (4) to [out=180,in=210,looseness=10] node[midway, below ] {$|$} (4); 
+					\draw[->] (4) to [out=165,in=195,looseness=10] node[midway, left] {$B$} (4);
+					\draw[->] (4) -- node[midway, above] {$m$} (5);
+					
+					\draw[->] (5) to [out=90,in=120,looseness=10] node[midway, left] {$|$} (5); 
+					\draw[->] (5) to [out=75,in=105,looseness=10] node[midway, right] {$n$} (5);
+					\draw[->] (5) -- node[midway, above] {$m$} (6);
+					
+					\draw[->] (6) to [out=360,in=30,looseness=10] node[midway, above right] {$|$} (6);
+					\draw[->] (6) to [out=345,in=15,looseness=10] node[midway, right] {$n$} (6); 
+					\draw[->] (6) to [out=330,in=360,looseness=10] node[midway, below] {$B$} (6);
+					\draw[->] (6) -- node[midway, right] {$m$} (7);
+					
+					\draw[->] (7) to [out=270,in=300,looseness=10] node[midway, below] {$|$} (7);
+					\draw[->] (7) -- node[midway, above] {$m$} (8);
+					\draw[->] (7) to [out=195, in=345,looseness=1] node[midway, below] {$B$} (8);
+					
+					\draw[->] (8) -- node[midway, left] {$B$} (6);
+					\draw[->] (8) -- node[midway, below left] {$m$} (4); 
+					\draw[->] (4) -- node[midway, left] {$n$} (9);
+					
+					\draw[->] (9) to [out=180,in=210,looseness=10] node[midway, below ] {$|$} (9); 
+					\draw[->] (9) to [out=165,in=195,looseness=10] node[midway, left] {$B$} (9);
+					\draw[->] (9) -- node[midway, left] {$n$} (10);
+					
+					
+					\draw[->] (10) to [out=180,in=210,looseness=10] node[midway, below] {$|$} (10); 
+					\draw[->] (10) to [out=330, in=210,looseness=1] node[midway, above] {$B$} (11);
+					
+					\draw[->] (11) to [out=150, in=30,looseness=1] node[midway, above] {$|$} (10);
+					\draw[->] (11) -- node[midway, right] {$B$} (12);
+					
+					\draw[->] (12) -- node[midway, below left] {$|$} (10);
+					\draw[->] (12) -- node[midway, above] {$B$} (13);
+				\end{tikzpicture} 
+			\end{minipage}
+		\end{itemize}
+	\end{multicols}	
+	
+\end{document}
