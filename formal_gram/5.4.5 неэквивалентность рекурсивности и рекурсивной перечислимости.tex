@@ -1,0 +1,294 @@
+\documentclass[a4paper, 12pt]{article}  % добавить leqno в [] для нумерации слева
+
+%%% Работа с русским языком
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{pscyr}
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая
+
+%% Номера формул
+\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+%% Шрифты
+\usepackage{euscript} % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+
+%% Первый абзац после секшиона
+\usepackage{indentfirst}
+
+%% Свои команды
+\DeclareMathOperator{\pphi}{\mathop{\varphi}}
+\DeclareMathOperator{\eps}{\mathop{\varepsilon}}
+\DeclareMathOperator{\conj}{\mathbb{\&}}
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+	{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%% Поля
+\usepackage[left=1cm, right=1.4cm, top=1cm, bottom=1.3cm]{geometry}
+
+%% Графика
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+
+%% Переименовать список литературы
+\addto\captionsrussian{\def\refname{Литература}}
+
+%%% Заголовок
+\author{Мат.клуб ``Тифаретник'' по С. Клини}
+\title{Введение в метаматематику на троечку}
+\date{\today}
+
+%%% Эпиграф
+\usepackage{epigraph}
+\setlength\epigraphwidth{9cm}
+
+%%% Работа с картинками
+\usepackage{graphicx}  % Для вставки рисунков
+\graphicspath{{images/}{images2/}}  % папки с картинками
+\setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig} % Обтекание рисунков и таблиц текстом
+
+%%% Добавляем код. Окружение lstlisting
+\usepackage{listings}
+\usepackage{color}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{bggray}{RGB}{244,244,244}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset
+{
+	backgroundcolor=\color{bggray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+	basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+	breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=b,                    % sets the caption-position to bottom
+	commentstyle=\color{mygreen},    % comment style
+	deletekeywords={...},            % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	%	firstnumber=1000,                % start line enumeration with line 1000
+	%	frame=single,	                   % adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       % keyword style
+	language=c,                 	 % the language of the code
+	morekeywords={*,...},            % if you want to add more keywords to the set
+	numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mymauve},     % string literal style
+	tabsize=3,	                     % sets default tabsize to 2 spaces
+	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title	
+}
+
+%%% Ссылки
+\usepackage{hyperref}
+
+%%% Окружения
+\theoremstyle{definition}
+\newtheorem*{theorem}{Теорема}
+\newtheorem*{definition}{Определение}
+\newtheorem*{pr}{Доказательство}
+
+%%% Цифры в кружке
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+%%% Перечисление кастомное
+\usepackage{enumitem}
+
+%%% Естественный вывод
+\usepackage{bussproofs}
+
+%%% Несколько колонок для перечислений
+\usepackage{multicol}
+
+\usepackage{array}
+
+%% no page numbering
+%\pagenumbering{gobble}
+
+\begin{document}
+	\subsection*{4.3.1 Понятие вычислимой функции}
+		
+		Пусть $Z$ --- машина Тьюринга с состояниями $q_1, q_2, \dots$ . Каждой $n$-ке $(m_1, \dots, m_n)$
+		неотрицательных чисел мы поставим в соответствие конфигурацию 
+			$$ \alpha_1 = q_1 \; \overline{m_1} \; B \; \overline{m_2} \; B \dots B \; \overline{m_1} $$
+		
+		Если для машины $Z$ существует вычисление, начинающееся конфигурацией $\alpha_1$ и доходящее до
+		заключительной конфигурации $\alpha_p$:
+			$$ \alpha_1 \rightarrow \alpha_2 \rightarrow \dots \rightarrow \alpha_p ,$$
+		
+		то число $\langle \alpha_p \rangle$ есть функция от $Z$ и начальной $n$-ки; мы будем писать
+			$$ \langle \alpha_p \rangle = \Psi^{(n)}_Z(m_1, \dots, m_n) . $$
+		
+		Если же вычисления, начинающегося с $\alpha_1$, не существует, т.е. не существует целого числа $p$,
+		такого, что конфигурация $\alpha_p$ является заключительной, то функция $\Psi^{(n)}_Z$ не
+		определена для рассматриваемой $n$-ки.
+		
+		\begin{definition}
+			Будем говорить, что функция $f$, определённая на некотором подмножестве множества
+			$\mathbb{N}^n$, является \textit{частично вычислимой}, если существует машина Тьюринга $Z$,
+			такая, что для всякой $n$-ки $(x_1, \dots, x_n)$, которой отвечает некоторое значение $f$,
+			выполняется равенство
+				$$f(x_1, \dots, x_n) = \Psi^{(n)}_Z(x_1, \dots, x_n)$$
+			
+			Назовём функцию $f$ \textit{вычислимой}, если она определена на $\mathbb{N}^n$ и является
+			частично вычислимой. 
+		\end{definition}
+		
+	\subsection*{5.4.0 Функции $Q^p_z(\mathscr{X})$}
+		
+		Всякой частично вычислимой функции $f(\mathscr{X})$, где $\mathscr{X} \in \mathbb{N}^p$, можно
+		сопоставить гёделевский номер $z$ той машины Тьюринга, которая эту функцию вычисляет (может
+		существовать несколько разных машин, вычисляющих одну и ту же функцию).
+		
+		\begin{definition}
+			Пусть имеется пара, образованная целым неотрицательным числом $z$ и входным заданием
+			$\mathscr{X} \in \mathbb{N}^p$. Тогда:
+			\begin{itemize}
+				\item Если $z$ есть гёделевский номер машины $Z$, вычисляющей частично вычислимую функцию
+				$f(\mathscr{X})$, то $Q^p_z(\mathscr{X})$ совпадает с $f(\mathscr{X})$. 
+				\item Если $z$ не является гёделевским номером никакой машины, то $Q^p_z(\mathscr{X})$
+				принимает значение $0$, т.е. функция на всех аргументах равная нулю.
+			\end{itemize}
+		\end{definition}
+	
+		Последовательность
+		$$Q^p_0(\mathscr{X}), Q^p_1(\mathscr{X}), \dots, Q^p_n(\mathscr{X}), \dots$$
+		
+		перечисляет, быть может с повторениями, множество частично вычислимых функций от $p$ аргументов.
+		Таким образом, мы ещё перечисляем области определения частично вычислимых функций 
+		
+		\begin{definition}
+			Машина Тьюринга, вычисляющая функцию $Q^p_z(\mathscr{X})$, называется \textit{универсальной}:
+			если поместить на её ленте подходящее число $z$, то она сможет вычислять частично вычислимую
+			функцию, соответствующую этому числу.
+		\end{definition}
+		
+%		\begin{theorem}
+%			Функции $Q^p_z(\mathscr{X})$ частично вычислимы.
+%		\end{theorem}
+		
+		
+		
+	\subsection*{5.4.3 Рекурсивные и рекурсивно перечислимые множества}
+	
+		\begin{definition}
+			Пусть $E \subset \mathbb{N}$. Тогда \textit{характеристическая функция} множества $E$, обозначаемая через $C_E$, определяется следующим образом:
+			\[
+				C_E(x) =  
+					\begin{cases}
+						1, & x \in E, \\
+						0, & x \notin E. \\
+					\end{cases}
+			\]			
+			
+			Аналогично определяется характеристическая функция множества $E \subset \mathbb{N}^p$.
+		\end{definition}
+	
+		\begin{definition}
+			Будем говорить, что некоторое множество \textit{рекурсивно}, если его характеристическая
+			функция вычислима. Если множество рекурсивно, то существует машина Тьюринга, которая, получив
+			на вход элемент этого множества, всегда ставит ему в соответствие некоторый ответ: либо $1$,
+			либо $0$.
+		\end{definition}
+	
+		\begin{definition}
+			Множество называется \textit{рекурсивно перечислимым}, если оно является областью определения
+			некоторой частично вычислимой функции.
+		\end{definition}
+	
+		Теоретически мы умеем перечислять частично вычислимые функции от одной целочисленной переменной, от
+		двух целочисленных переменных и т.д.; следовательно, в принципе мы умеем перечислять и рекурсивно
+		перечислимые множества (области определения):
+		$\mathscr{R}_0, \mathscr{R}_1, \dots, \mathscr{R}_i, \dots$.
+		
+		\begin{theorem}
+			Множество является рекурсивным тогда и только тогда, когда оно само и его дополнение рекурсивно
+			перечислимы.
+		\end{theorem}
+		
+	\subsection*{5.4.5 Неэквивалентность рекурсивности и рекурсивной перечислимости}
+		
+		Рассмотрим множество $MT_1$ машин Тьюринга, вычисляющих функции от одного аргумента.
+		\begin{center}
+			\begin{tabular}{|c|c|c|c}
+				\hline
+				$T_1$ & $T_2$ & $T_3$ & \dots  \\
+				\hline
+			\end{tabular}
+		\end{center}
+		
+		Каждой из этих машин мы будем предлагать в качестве исходного задания её собственный гёделевский
+		номер. Возможно одно из двух: либо, начав вычисления с $t_n = ng(T_n)$, машина $T_n$ когда-нибудь
+		остановится и выдаст некоторый результат (в таком случае машину называют \textit{самоприменимой}),
+		либо она никогда не остановится. Разделим $MT_1$ на подмножества самоприменимых $SMT_1$ и не самоприменимых машин $NSMT_1$ (ясно, что никаких других машин в $MT_1$ нет):
+		
+		\begin{center}
+			\begin{multicols}{2}	
+				$SMT_1$ ---
+				\begin{tabular}{|c|c|c|c}
+					\hline
+					$T_{i_1}$ & $T_{i_2}$ & $T_{i_3}$ & \dots  \\
+					\hline
+				\end{tabular}
+			
+				$NSMT_1$ ---
+				\begin{tabular}{|c|c|c|c}
+					\hline
+					$T_{j_1}$ & $T_{j_2}$ & $T_{j_3}$ & \dots  \\
+					\hline
+				\end{tabular}
+			\end{multicols}
+		\end{center}
+		
+		Определим теперь функцию $\mathscr{F}(z)$, которая берёт гёделевский номер $t_n$ машины $T_n$ из
+		$MT_1$ и даёт этой же машине на вход. Тогда получается, что $\mathscr{F}(z) = Q^1_z(z)$,
+		следовательно она частично вычислима. Можно построить машину Тьюринга, вычисляющую эту функцию; для
+		это надо сначала построить универсальную машину, вычисляющую $Q^1_z(x)$, т.е. вычисляющую любую из
+		$MT_1$.
+		
+		Таким образом, областью определения частично вычислимой функции $\mathscr{F}$ является множество
+		$G$ гёделевских номеров машин из $SMT_1$, так как если номер самоприменимой машины, то машина
+		вычисляющая $\mathscr{F}$ всегда останавливается, иначе работает вечно. Значит $G$ оказывается
+		рекурсивно перечислимым множеством.
+		
+		Теперь предположим, что оно является и рекурсивным. Это равносильно рекурсивной перечислимости его
+		дополнения $\overline{G}$.
+		
+		В таком случае должна существовать машина Тьюринга с каким-то номером $\lambda$, находящаяся или в
+		$SMT_1$, или в $NSMT_1$ и перечисляющая $\overline{G}$ (т.е. вычисляющая некоторую функцию с
+		областью определения $\overline{G}$); в перечислении рекурсивно перечислимых множеств
+		множество $\overline{G}$ носило бы именно этот номер:
+		$$ \overline{G} = \mathscr{R}_{\lambda} $$
+		
+		Тогда мы имеем следующее
+		$$ \forall x ( x \in \overline{G} \Leftrightarrow  x \in \mathscr{R}_{\lambda} ), x \in \mathbb{N}$$
+		
+		Однако в силу самого определения $\overline{G}$: если $x$ принадлежит $\overline{G}$, значит машина
+		Тьюринга с номером $x$ находится в $NSMT_1$, т.е. $x$ не входит в её область определения
+		$$ \forall x (x \in \overline{G} \Leftrightarrow  x \notin \mathscr{R}_x ), x \in \mathbb{N}$$
+		
+		Следовательно,
+		$$ \forall x (x \in \mathscr{R}_{\lambda} \Leftrightarrow  x \notin \mathscr{R}_x), x \in \mathbb{N} $$
+		
+		Теперь посмотрим машина, перечисляющая $\overline{G}$, находится в $SMT_1$ или в $NSMT_1$. Пусть в
+		$SMT_1$. Тогда её номер должен быть в области определения функции, которую она вычисляет, т.е. 
+		$\lambda \in \mathscr{R}_{\lambda}$, но из предыдущего утверждения следует 
+		$$ \lambda \in \mathscr{R}_{\lambda} \Leftrightarrow  \lambda \notin \mathscr{R}_{\lambda}$$
+		
+		Полученное противоречие доказывает, что не существует машины Тьюринга, перечисляющей множество $\overline{G}$ гёделевских номеров не самоприменимых машин. Следовательно, $G$ не является рекурсивным множеством.
+
+\end{document}
