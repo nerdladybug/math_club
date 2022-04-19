@@ -1,0 +1,170 @@
+\documentclass[a4paper, 12pt]{article}  % добавить leqno в [] для нумерации слева
+
+%%% Работа с русским языком
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{pscyr}
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая
+
+%% Номера формул
+\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+%% Шрифты
+\usepackage{euscript} % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+
+%% Первый абзац после секшиона
+\usepackage{indentfirst}
+
+%% Свои команды
+\DeclareMathOperator{\pphi}{\mathop{\varphi}}
+\DeclareMathOperator{\eps}{\mathop{\varepsilon}}
+\DeclareMathOperator{\conj}{\mathbb{\&}}
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+	{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%% Поля
+\usepackage[left=1cm, right=1.4cm, top=1cm, bottom=1.3cm]{geometry}
+
+%% Графика
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+
+%% Переименовать список литературы
+\addto\captionsrussian{\def\refname{Литература}}
+
+%%% Заголовок
+\author{Мат.клуб ``Тифаретник'' по С. Клини}
+\title{Введение в метаматематику на троечку}
+\date{\today}
+
+%%% Эпиграф
+\usepackage{epigraph}
+\setlength\epigraphwidth{9cm}
+
+%%% Работа с картинками
+\usepackage{graphicx}  % Для вставки рисунков
+\graphicspath{{images/}{images2/}}  % папки с картинками
+\setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig} % Обтекание рисунков и таблиц текстом
+
+%%% Добавляем код. Окружение lstlisting
+\usepackage{listings}
+\usepackage{color}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{bggray}{RGB}{244,244,244}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset
+{
+	backgroundcolor=\color{bggray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+	basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+	breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=b,                    % sets the caption-position to bottom
+	commentstyle=\color{mygreen},    % comment style
+	deletekeywords={...},            % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	%	firstnumber=1000,                % start line enumeration with line 1000
+	%	frame=single,	                   % adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       % keyword style
+	language=c,                 	 % the language of the code
+	morekeywords={*,...},            % if you want to add more keywords to the set
+	numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mymauve},     % string literal style
+	tabsize=3,	                     % sets default tabsize to 2 spaces
+	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title	
+}
+
+%%% Ссылки
+\usepackage{hyperref}
+
+%%% Окружения
+\theoremstyle{definition}
+\newtheorem{theorem}{Теорема}
+\newtheorem*{definition}{Определение}
+\newtheorem*{pr}{Доказательство}
+
+%%% Цифры в кружке
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+%%% Перечисление кастомное
+\usepackage{enumitem}
+
+%%% Естественный вывод
+\usepackage{bussproofs}
+
+%%% Несколько колонок для перечислений
+\usepackage{multicol}
+
+\usepackage{array}
+
+%% no page numbering
+\pagenumbering{gobble}
+
+\begin{document}
+	
+	\subsection*{Дополнение неограниченного языка Дика как группа}
+	
+		Алфавит для слов $\mathscr{U} = \{ (_1, )_1, (_2, )_2, \dots, (_n, )_n \}$. Пусть $B_i$ это
+		скобка типа $i$, a $B_i^{\backprime}$ другая того же типа. Будем порождать
+		$\mathscr{U}^{\ast}$ конкатенацией ``$\cdot$'' с дополнительным условием:
+			$$B_i  \cdot  B_i^{\backprime} = E$$
+			
+		И для двух комбинаций скобок:
+			$$ B_{i_1}B_{i_2}\dots B_{i_n}B_i  \cdot  B_i^{\backprime}B_{j_1}B_{j_2}\dots B_{j_n} =
+			B_{i_1}B_{i_2}\dots B_{i_n} \cdot E \cdot  B_{j_1}B_{j_2}\dots B_{j_n} $$
+					
+		Покажем, что для любой комбинации скобок существует обратная комбинация. Пусть слово 
+		$A = B_{i_1}B_{i_2}\dots B_{i_{n-1}}B_{i_n}$. Тогда, чтобы получить обратный элемент,
+		достаточно взять зеркальный образ $\overline{A}=B_{i_n}B_{i_{n-1}}\dots B_{i_2}B_{i_1}$ и
+		заменить все скобки на другие того же типа 
+		$\overline{A}^{\backprime}=B_{i_n}^{\backprime}B_{i_{n-1}}^{\backprime}\dots B_{i_2}^{\backprime}B_{i_1}^{\backprime}$:
+		$$ A \cdot \overline{A}^{\backprime} = B_{i_1}B_{i_2}\dots B_{i_{n-1}}B_{i_n} \cdot
+		  B_{i_n}^{\backprime}B_{i_{n-1}}^{\backprime}\dots B_{i_2}^{\backprime}B_{i_1}^{\backprime} =
+		  E = \overline{A}^{\backprime} \cdot A $$
+		
+		Тогда $\mathscr{U}^{\ast}$ будет \textit{группой} порождённой подмножеством
+		$\mathscr{U}$, т.е. $\mathscr{U}^{\ast} = \langle \mathscr{U} \rangle $.
+		
+		\begin{center}
+			\begin{tabular}{|c||c|c|c|c|c|c|c|c}
+				\hline
+				$\cdot$ & $(_1$ & $)_1$ & $(_2$ & $)_2$ & \dots & $(_n$ & $)_n$ & \dots \\
+				\hline
+				\hline
+				$(_1$ & $(_1(_1$ & $E$ & $(_1(_2$ & $(_1)_2$ & \dots  & $(_1(_n$ & $(_1)_n$ & \dots  \\
+				\hline
+				$)_1$ & $E$ & $)_1)_1$ & $)_1(_2$ & $)_1)_2$ & \dots  & $)_1(_n$ & $)_1)_n$ & \dots \\
+				\hline
+				 $(_2$ & $(_2(_1$ & $(_2)_1$ & $(_2(_2$ & $E$ & \dots & $(_2(_n$ & $(_2)_n$ & \dots  \\
+				\hline
+				$)_2$ & $)_2(_1$ & $)_2)_1$ & $E$ & $)_2)_2$ & \dots  & $)_2(_n$ & $)_2)_n$ & \dots  \\
+				\hline
+				\dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
+				\hline
+				$(_n$ & $(_n(_1$ & $(_n)_1$ & $(_n(_2$ & $(_n)_2$ & \dots & $(_n(_n$ & $E$ &\dots\\
+				\hline
+				$)_n$ & $)_n(_1$ & $)_n)_1$ & $)_n(_2$ & $)_n)_2$ & \dots & $E$ & $)_n)_n$ & \dots \\		
+				\hline
+				\dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\		
+			\end{tabular}
+		\end{center}
+\end{document}
