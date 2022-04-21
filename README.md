@@ -9,7 +9,7 @@
 - [Клини, "Введение в метаматематику"](https://github.com/nerdladybug/math_club/tree/main/metamath_intro)
 - [Маклейн, "Категории для работающего математика"](https://github.com/nerdladybug/math_club/tree/main/category)
 - [Гросс М., Лантен А., "Теория формальных грамматик"](https://github.com/nerdladybug/math_club/tree/main/formal_gram)
-- Винберг, "Курс алгебры"
+- [Винберг, "Курс алгебры"](https://github.com/nerdladybug/math_club/tree/main/algebra_vinberg)
 
 | Пн | Вт | Ср | Чт | Пт              | Сб                           | Вс            |
 |----|----|----|----|-----------------|------------------------------|---------------|
