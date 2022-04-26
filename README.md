@@ -5,17 +5,14 @@
 
 
 ### Сейчас читаем
-	
-- [Клини, "Введение в метаматематику"](https://github.com/nerdladybug/math_club/tree/main/metamath_intro)
-- [Маклейн, "Категории для работающего математика"](https://github.com/nerdladybug/math_club/tree/main/category)
-- [Гросс М., Лантен А., "Теория формальных грамматик"](https://github.com/nerdladybug/math_club/tree/main/formal_gram)
-- [Винберг, "Курс алгебры"](https://github.com/nerdladybug/math_club/tree/main/algebra_vinberg)
 
-| Пятница     | Винберг - 21:00              | 
-|-------------|------------------------------|
-| Суббота     | Маклейн - 18:30, ТФГ - 20:00 | 
-|-------------|------------------------------|
-| Воскресение | Клини - 20:00                |
+|       |       |
+|-------|-------|
+|Пятница| 21:00 - [Винберг, "Курс алгебры"](https://github.com/nerdladybug/math_club/tree/main/algebra_vinberg)| 
+|Суббота| 18:30 - [Маклейн, "Категории для работающего математика"](https://github.com/nerdladybug/math_club/tree/main/category)|
+| | 20:00 - [Гросс М., Лантен А., "Теория формальных грамматик"](https://github.com/nerdladybug/math_club/tree/main/formal_gram)|
+|Воскресение| 20:00 - [Клини, "Введение в метаматематику"](https://github.com/nerdladybug/math_club/tree/main/metamath_intro)|
+
 
 ### Планируем читать
 
