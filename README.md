@@ -14,7 +14,7 @@
     <td>18:30 - <a href="https://github.com/nerdladybug/math_club/tree/main/category">Маклейн, "Категории для работающего математика" </a></td>
   </tr>
   <tr>
-    <td>20:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/formal_gram">Гросс М., Лантен А., "Теория формальных грамматик</a></td>
+    <td>20:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/formal_gram">Гросс М., Лантен А., "Теория формальных грамматик"</a></td>
   </tr>
   <tr>
     <td><b>Воскресенье</td>
