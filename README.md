@@ -7,7 +7,7 @@
 <table>
   <tr>
     <td><b>Пятница</td>
-    <td>21:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/algebra_vinberg">Винберг, "Курс алгебры</a></td>
+    <td>21:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/algebra_vinberg">Винберг, "Курс алгебры"</a></td>
   </tr>
   <tr>
     <td rowspan="2"><b>Суббота</td>
