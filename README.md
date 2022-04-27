@@ -2,20 +2,31 @@
 Привет! Это репозиторий с полезной инфой для проведения чтений в нашем мат. клубе! Собираемся и общаемся мы в гостях у философского дискорд-сервера [Несон](https://discord.gg/GNb2u4m). 
 
 
-### Сейчас читаем
+### Расписание
 
 <table>
   <tr>
-    <td><b>Пятница</td>
-    <td>21:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/algebra_vinberg">Винберг, "Курс алгебры"</a></td>
+    <td><b>Вторник</td>
+    <td>18:30 - <a>Задачи по топологии из листков НМУ</a></td>
   </tr>
+  
+  <tr>
+    <td rowspan="2"><b>Пятница</td>
+    <td>21:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/algebra_vinberg">Винберг, "Курс алгебры"</a></td>
+    <tr>
+        <td>21:00 - <a>Канунников, "Начала теории Галуа"</a></td>
+    </tr>
+  </tr>
+  
   <tr>
     <td rowspan="2"><b>Суббота</td>
     <td>18:30 - <a href="https://github.com/nerdladybug/math_club/tree/main/category">Маклейн, "Категории для работающего математика" </a></td>
   </tr>
+  
   <tr>
     <td>20:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/formal_gram">Гросс М., Лантен А., "Теория формальных грамматик"</a></td>
   </tr>
+  
   <tr>
     <td><b>Воскресенье</td>
     <td>20:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/metamath_intro">Клини, "Введение в метаматематику"</a>
