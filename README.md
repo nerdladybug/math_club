@@ -6,12 +6,13 @@
 
 <table>
   <tr>
-    <td><b>Вторник</td>
-    <td>18:30 - <a>Задачи по топологии из листков НМУ</a></td>
+    <td><b>Четверг</td>
+    <td>19:00 - <a>Ван дер Варден, "Пробуждающаяся наука. Математика древнего Египта, Вавилона и Греции" (с 07.07) </a></td>
   </tr>
   
   <tr>
     <td rowspan="2"><b>Пятница</td>
+    <td>21:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/algebra_vinberg">Винберг, "Курс алгебры"</a></td>
     <tr>
         <td>21:00 - <a>Канунников, "Начала теории Галуа"</a></td>
     </tr>
@@ -19,17 +20,23 @@
   
   <tr>
     <td rowspan="2"><b>Суббота</td>
-    <tr>
     <td>18:30 - <a href="https://github.com/nerdladybug/math_club/tree/main/category">Маклейн, "Категории для работающего математика" </a></td>
-    </tr>
- </tr>
+  </tr>
+  
+  <tr>
+    <td>20:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/formal_gram">Гросс М., Лантен А., "Теория формальных грамматик"</a></td>
+  </tr>
+  
+  <tr>
+    <td><b>Воскресенье</td>
+    <td>20:00 - <a>Ландо, "Дискретная математика" (с 03.07)  </a></td>
+</td>
+  </tr>
 </table>
 
 
 :pause_button: На паузе:
-- <a href="https://github.com/nerdladybug/math_club/tree/main/algebra_vinberg">Винберг, "Курс алгебры"</a>, прочитано 4 главы
 - <a href="https://github.com/nerdladybug/math_club/tree/main/metamath_intro">Клини, "Введение в метаматематику"</a>, прочитано 47 параграфов
-- <a href="https://github.com/nerdladybug/math_club/tree/main/formal_gram">Гросс М., Лантен А., "Теория формальных грамматик"</a>, прочитано 8 глав
 
 :books: [Здесь](https://drive.google.com/drive/folders/1PNMiyOlzuug-AFRJFxAFHlyZBTv1kurY) можно найти все наши книги.
 
