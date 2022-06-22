@@ -24,12 +24,12 @@
   </tr>
   
   <tr>
-    <td>20:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/formal_gram">Гросс М., Лантен А., "Теория формальных грамматик"</a></td>
+    <td>20:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/formal_gram">Гросс, Лантен, "Теория формальных грамматик"</a></td>
   </tr>
   
   <tr>
     <td><b>Воскресенье</td>
-    <td>20:00 - <a>Ландо, "Дискретная математика" (с 03.07)  </a></td>
+    <td>20:00 - <a>Ландо, "Введение в дискретную математику" (с 03.07)  </a></td>
 </td>
   </tr>
 </table>
