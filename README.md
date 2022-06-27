@@ -6,13 +6,17 @@
 
 <table>
   <tr>
+    <td><b>Среда</td>
+    <td>19:00 - <a>Goldblatt, "Lectures on the Hyperreals. An Introduction to Nonstandard Analysis" </a></td>
+  </tr>
+  
+  <tr>
     <td><b>Четверг</td>
     <td>19:00 - <a>Ван дер Варден, "Пробуждающаяся наука. Математика древнего Египта, Вавилона и Греции" (с 07.07) </a></td>
   </tr>
   
   <tr>
     <td rowspan="2"><b>Пятница</td>
-    <td>21:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/algebra_vinberg">Винберг, "Курс алгебры"</a></td>
     <tr>
         <td>21:00 - <a>Канунников, "Начала теории Галуа"</a></td>
     </tr>
@@ -37,6 +41,8 @@
 
 :pause_button: На паузе:
 - <a href="https://github.com/nerdladybug/math_club/tree/main/metamath_intro">Клини, "Введение в метаматематику"</a>, прочитано 47 параграфов
+- <a href="https://github.com/nerdladybug/math_club/tree/main/algebra_vinberg">Винберг, "Курс алгебры"</a>, прочитано 4 главы
+- <a href="https://github.com/nerdladybug/math_club/tree/main/formal_gram">Гросс, Лантен, "Теория формальных грамматик"</a>, прочитано 8 глав
 
 :books: [Здесь](https://drive.google.com/drive/folders/1PNMiyOlzuug-AFRJFxAFHlyZBTv1kurY) можно найти все наши книги.
 
