@@ -28,7 +28,6 @@
   </tr>
   
   <tr>
-    <td>20:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/formal_gram">Гросс, Лантен, "Теория формальных грамматик"</a></td>
   </tr>
   
   <tr>
