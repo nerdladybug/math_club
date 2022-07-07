@@ -4,10 +4,12 @@
 
 ### Расписание
 
+https://github.com/nerdladybug/math_club/tree/main/nonstandard
+
 <table>
   <tr>
     <td><b>Среда</td>
-    <td>19:00 - <a>Goldblatt, "Lectures on the Hyperreals. An Introduction to Nonstandard Analysis" </a></td>
+    <td>19:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/nonstandard">Goldblatt, "Lectures on the Hyperreals. An Introduction to Nonstandard Analysis" </a></td>
   </tr>
   
   <tr>
