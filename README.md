@@ -4,8 +4,6 @@
 
 ### Расписание
 
-https://github.com/nerdladybug/math_club/tree/main/nonstandard
-
 <table>
   <tr>
     <td><b>Среда</td>
