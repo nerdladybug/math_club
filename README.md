@@ -26,9 +26,8 @@
     <td>18:30 - <a href="https://github.com/nerdladybug/math_club/tree/main/category">Маклейн, "Категории для работающего математика" </a></td>
   </tr>
   <tr>
-    <td>20:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/formal_gram">Гросс М., Лантен А., "Теория формальных грамматик"</a></td>
   </tr>
-
+  
   <tr>
     <td><b>Воскресенье</td>
     <td>20:00 - <a>Ландо, "Введение в дискретную математику" </a></td>
@@ -40,6 +39,7 @@
 :pause_button: На паузе:
 - <a href="https://github.com/nerdladybug/math_club/tree/main/metamath_intro">Клини, "Введение в метаматематику"</a>, прочитано 47 параграфов
 - <a href="https://github.com/nerdladybug/math_club/tree/main/algebra_vinberg">Винберг, "Курс алгебры"</a>, прочитано 4 главы
+- <a href="https://github.com/nerdladybug/math_club/tree/main/formal_gram">Гросс, Лантен, "Теория формальных грамматик"</a>, прочитано 9 глав
 
 :books: [Здесь](https://drive.google.com/drive/folders/1PNMiyOlzuug-AFRJFxAFHlyZBTv1kurY) можно найти все наши книги.
 
