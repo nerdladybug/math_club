@@ -6,6 +6,16 @@
 
 <table>
   <tr>
+    <td><b>Понедельник</td>
+    <td>20:00 - <a> Гомологическая алгебра в формате лекций </a></td>
+  </tr>
+  
+  <tr>
+    <td><b>Вторник</td>
+    <td>20:00 - <a> Хартсхорн, "Алгебраическая геометрия" </a></td>
+  </tr>
+  
+  <tr>
     <td><b>Среда</td>
     <td>19:00 - <a href="https://github.com/nerdladybug/math_club/tree/main/nonstandard">Goldblatt, "Lectures on the Hyperreals. An Introduction to Nonstandard Analysis" </a></td>
   </tr>
@@ -13,19 +23,6 @@
   <tr>
     <td><b>Четверг</td>
     <td>19:00 - <a>Ван дер Варден, "Пробуждающаяся наука. Математика древнего Египта, Вавилона и Греции"</a></td>
-  </tr>
-  
-  <tr>
-    <td rowspan="2"><b>Пятница</td>
-    <tr>
-        <td>21:00 - <a>Канунников, "Начала теории Галуа"</a></td>
- </tr>
-  
-  <tr>
-    <td rowspan="2"><b>Суббота</td>
-    <td>18:30 - <a href="https://github.com/nerdladybug/math_club/tree/main/category">Маклейн, "Категории для работающего математика" </a></td>
-  </tr>
-  <tr>
   </tr>
   
   <tr>
@@ -40,6 +37,7 @@
 - <a href="https://github.com/nerdladybug/math_club/tree/main/metamath_intro">Клини, "Введение в метаматематику"</a>, прочитано 47 параграфов
 - <a href="https://github.com/nerdladybug/math_club/tree/main/algebra_vinberg">Винберг, "Курс алгебры"</a>, прочитано 4 главы
 - <a href="https://github.com/nerdladybug/math_club/tree/main/formal_gram">Гросс, Лантен, "Теория формальных грамматик"</a>, прочитано 9 глав
+- <a href="https://github.com/nerdladybug/math_club/tree/main/category">Маклейн, "Категории для работающего математика" </a>, прочитано 4 главы
 
 :books: [Здесь](https://drive.google.com/drive/folders/1PNMiyOlzuug-AFRJFxAFHlyZBTv1kurY) можно найти все наши книги.
 
